@@ -27,7 +27,7 @@
                       </el-col>
                       <el-col :span="8">
                         <el-form-item label="出身日期">
-                          <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" ></el-date-picker>
+                          <el-date-picker type="date" placeholder="选择日期" v-model="form.chushengriqi" ></el-date-picker>
                         </el-form-item>
                       </el-col>
                   </el-row>
@@ -52,7 +52,7 @@
                       </el-col>
                       <el-col :span="8">
                         <el-form-item label="证件号">
-                          <el-input v-model="form.name"></el-input>
+                          <el-input v-model="form.zhengjinhao"></el-input>
                         </el-form-item>
                       </el-col>
                   </el-row>
@@ -189,7 +189,7 @@
                   <el-row :gutter="10">
                       <el-col :span="8">
                         <el-form-item label="参加工作时间">
-                          <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" ></el-date-picker>
+                          <el-date-picker type="date" placeholder="选择日期" v-model="form.cjgzsj" ></el-date-picker>
                         </el-form-item>
                       </el-col>
                   </el-row>
@@ -439,7 +439,7 @@
                         </el-form-item>
                       </el-col>
                   </el-row>
-                  <el-row :gutter="2">
+                  <el-row :gutter="2" >
                       <el-col :span="3" style="text-align:right">
                         退役后残疾：
                       </el-col>
@@ -497,7 +497,7 @@
                       </el-col>
                   </el-row>
 
-                  <el-row :gutter="2">
+                  <el-row :gutter="2" type="flex"  justify="center" align="middle">
                       <el-col :span="3" style="text-align:right">
                         残疾证件照片：
                       </el-col>
@@ -537,7 +537,7 @@
                       </el-col>
                   </el-row>
 
-                  <el-row :gutter="2" style="margin-top:10px">
+                  <el-row :gutter="2" style="margin-top:10px" type="flex"  justify="center" align="middle">
                       <el-col :span="3" style="text-align:right">
                         残疾证件号码：
                       </el-col>
@@ -565,7 +565,7 @@
                       </el-col>
                   </el-row>
 
-                  <el-row :gutter="2" style="margin-top:10px">
+                  <el-row :gutter="2" style="margin-top:10px" type="flex"  justify="center" align="middle">
                       <el-col :span="3" style="text-align:right">
                         证件有效期：
                       </el-col>
@@ -592,7 +592,7 @@
                           </el-row>
                       </el-col>
                   </el-row>
-                  <el-row :gutter="2" style="margin-top:10px">
+                  <el-row :gutter="2" style="margin-top:10px" type="flex"  justify="center" align="middle">
                       <el-col :span="3" style="text-align:right">
                         是职业病评残：
                       </el-col>
@@ -620,7 +620,7 @@
                       </el-col>
                   </el-row>
 
-                  <el-row :gutter="2" style="margin-top:10px">
+                  <el-row :gutter="2" style="margin-top:10px" type="flex"  justify="center" align="middle">
                       <el-col :span="3" style="text-align:right">
                         配置辅助器具：
                       </el-col>
@@ -647,7 +647,7 @@
                           </el-row>
                       </el-col>
                   </el-row>
-                  <el-row :gutter="2" style="margin-top:10px">
+                  <el-row :gutter="2" style="margin-top:10px" type="flex"  justify="center" align="middle">
                       <el-col :span="3" style="text-align:right">
                         享受残疾人补贴：
                       </el-col>

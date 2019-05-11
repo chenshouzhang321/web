@@ -1,20 +1,24 @@
 <template>
 <el-container style="height:100%">
-<el-aside width="200px" style="background:#393C4F" >
+<el-aside width="210px" style="background:#393C4F" >
 
-<div style="background:#002140;height:40px;line-height;40px;">
+<div style="background:#002140;height:40px;line-height;40px;position:relative">
   <div style="
-    background: rgb(66, 85, 104);
-    height: 30px;
-    margin: 10px;
-    text-align: center;
-    color: rgba(255,255,255,0.7);
-    line-height: 30px;">山东省退役军人服务平台</div>
+  background: rgb(66, 85, 104);
+height: 30px;
+text-align: center;
+width: 90%;
+color: rgba(255, 255, 255, 0.7);
+line-height: 30px;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
 </div>
-<el-menu :default-active="path"  :router="true"   background-color="#393C4F" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff">
+<el-menu :default-active="path"  :router="true" style="width:100%"   background-color="#393C4F" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff">
   <el-submenu index="1">
       <template slot="title">
-         <i class="el-icon-location"></i>
+         <i class="el-icon-view"></i>
          <span slot="title">信息采集平台</span>
      </template>
      <el-menu-item index="/imCollection/basicInformation" >基本信息</el-menu-item>
