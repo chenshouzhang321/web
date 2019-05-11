@@ -10,7 +10,7 @@
               <div style="text-align:center">近照</div>
           </el-aside>
           <el-container >
-              <el-form ref="form" label-width="120px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
+              <el-form ref="form" label-width="100px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
                   <el-row :gutter="10">
                       <el-col :span="8">
                         <el-form-item label="姓名">
