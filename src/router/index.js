@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import MainLayout from '@/views/layout/main.vue'
 
 const BasicInformation = () => import('@/views/ImCollection/BasicInformation')
+const Basic = () => import('@/views/ImCollection/index')
 Vue.use(Router)
 
 export default new Router({
@@ -16,6 +17,11 @@ export default new Router({
         {
           path: 'basicInformation',
           component: BasicInformation,
+          name: '信息采集'
+        },
+        {
+          path: 'basic',
+          component: Basic,
           name: '基本信息'
         }
       ]
