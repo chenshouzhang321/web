@@ -1,0 +1,56 @@
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 5px;
+  height: 5px;
+  cursor: pointer;
+}
+
+
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+  background: rgba(0, 0, 0, .2);
+}
+
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+  border-radius: 0;
+}
+
+body,html{
+padding:0px;
+margin:0px;
+height:100%;
+width:100%;
+font-size: 12px;
+min-width: 1366px;
+}
+.el-form-item__label,.el-checkbox__label{
+  font-size: 12px;
+}
+.el-breadcrumb__inner{
+  color: #919191;
+}
+.common-content{
+  background: #f0f2f5;
+  min-height: calc(100% - 45px);
+  width: 100%;
+  padding-bottom: 10px;
+}
+.common-header{
+  background: #fff;
+  padding: 10px 20px;
+}
+.common-main{
+  margin: 10px;
+  min-height: calc(100% - 85px);
+  background: #fff;
+}
+a{
+  text-decoration: none;
+}
+a:active{
+  color: transparent;
+}

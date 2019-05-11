@@ -1,0 +1,47 @@
+.BasicInformation{
+  .common-main{
+    border:2px solid rgb(240, 240, 240);
+    overflow-y: auto;
+      overflow-x: hidden;
+    .el-input,.el-select,{
+      width: 100%;
+    }
+
+
+    .imgCls{
+      width: 120px;
+      height: 120px;
+      background: #E8E8E8;
+      margin: 10px auto;
+      position: relative;
+      .icon{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+    .zjz{
+      width: 100% !important;
+      position: relative !important;
+    }
+    .imgzp{
+      position: absolute;
+      top:0px;
+      right:0px;
+      width: 70px;
+      height: 70px;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.02);
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      i{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+  }
+}
