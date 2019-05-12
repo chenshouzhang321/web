@@ -157,8 +157,8 @@ export default {
       form:{
         zhi1:30,
         zhi2:40,
-        大于:1,
-        小于:2,
+        大于:"2",
+        小于:"2",
         lx:"1"
       },
       showHightSearch:false,

@@ -1,17 +1,17 @@
 <template>
   <div class="excellentsupportdetail common-content">
-    <div class="common-header">申请优扶</div>
+    <div class="common-header">申请优扶 <el-button size="medium" class="nextBTN" @click="changeSetpState">下一步</el-button></div>
     <div class="common-main">
       <div class="setpsdiv">
-        <el-steps :active="active" finish-status="success">
+        <el-steps :active="active">
           <el-step title="基本信息">1</el-step>
           <el-step title="县级审批">2</el-step>
           <el-step title="市级审批">3</el-step>
           <el-step title="省级审批">4</el-step>
         </el-steps>
       </div>
-      <div class="excellentmain">
-        <el-form ref="form" label-width="100px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
+      <div class="excellentmain" v-if="active==0">
+        <el-form  ref="form"  label-width="100px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
             <el-row :gutter="10" style="border-bottom:1px solid #f0f0f0;">
                 <el-col :span="8">
                   <el-form-item label="类别：">
@@ -243,13 +243,14 @@
                                  <el-input v-model="form.金额二"></el-input>
                                </el-form-item>
                             </el-col>
+                            <el-col :span="8">
+                                <el-form-item label="金额三">
+                                  <el-input v-model="form.金额三"></el-input>
+                                </el-form-item>
+                             </el-col>
                   </el-row>
                   <el-row :gutter="10" >
-                           <el-col :span="8">
-                               <el-form-item label="金额三">
-                                 <el-input v-model="form.金额三"></el-input>
-                               </el-form-item>
-                            </el-col>
+
                             <el-col :span="8">
                                 <el-form-item label="是否社会化发放">
                                   <el-select v-model="form.是否社会化发放">
@@ -261,6 +262,80 @@
                   </el-row>
                 </div>
         </el-form>
+      </div>
+      <div class="excellentmain" v-if="active==1">
+          <div class="excellentItem">
+            <div class="excellentItem_bar">县级审批</div>
+            <el-form  ref="form"  label-width="100px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
+                <el-row :gutter="10">
+                    <el-col :span="24">
+                        <el-form-item label="是否通过">
+                          <el-radio-group v-model="form.是否通过1">
+                            <el-radio :label="1">是</el-radio>
+                            <el-radio :label="2">否</el-radio>
+                          </el-radio-group>
+                        </el-form-item>
+                      </el-col>
+                </el-row>
+                <el-row :gutter="10">
+                    <el-col :span="24">
+                        <el-form-item label="审批意见" >
+                          <el-input type="textarea"  v-model="form.审批意见1"></el-input>
+                        </el-form-item>
+                      </el-col>
+                </el-row>
+            </el-form>
+          </div>
+      </div>
+
+      <div class="excellentmain" v-if="active==2">
+          <div class="excellentItem">
+            <div class="excellentItem_bar">市级审批</div>
+            <el-form  ref="form"  label-width="100px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
+                <el-row :gutter="10">
+                    <el-col :span="24">
+                        <el-form-item label="是否通过">
+                          <el-radio-group v-model="form.是否通过2">
+                            <el-radio :label="1">是</el-radio>
+                            <el-radio :label="2">否</el-radio>
+                          </el-radio-group>
+                        </el-form-item>
+                      </el-col>
+                </el-row>
+                <el-row :gutter="10">
+                    <el-col :span="24">
+                        <el-form-item label="审批意见">
+                          <el-input type="textarea" v-model="form.审批意见2"></el-input>
+                        </el-form-item>
+                      </el-col>
+                </el-row>
+            </el-form>
+          </div>
+      </div>
+
+      <div class="excellentmain" v-if="active==3">
+          <div class="excellentItem">
+            <div class="excellentItem_bar">省级审批</div>
+            <el-form  ref="form"  label-width="100px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
+                <el-row :gutter="10">
+                    <el-col :span="24">
+                        <el-form-item label="是否通过">
+                          <el-radio-group v-model="form.是否通过3">
+                            <el-radio :label="1">是</el-radio>
+                            <el-radio :label="2">否</el-radio>
+                          </el-radio-group>
+                        </el-form-item>
+                      </el-col>
+                </el-row>
+                <el-row :gutter="10">
+                    <el-col :span="24">
+                        <el-form-item label="审批意见">
+                          <el-input type="textarea" v-model="form.审批意见3"></el-input>
+                        </el-form-item>
+                      </el-col>
+                </el-row>
+            </el-form>
+          </div>
       </div>
     </div>
   </div>
@@ -278,7 +353,10 @@ export default {
     }
   },
   methods:{
-
+      changeSetpState:function()
+      {
+        if (this.active++ > 2) this.active = 0;
+      }
   }
 }
 </script>
