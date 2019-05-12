@@ -4,6 +4,8 @@ import MainLayout from '@/views/layout/main.vue'
 
 const BasicInformation = () => import('@/views/ImCollection/BasicInformation')
 const Basic = () => import('@/views/ImCollection/index')
+const ExcellentsupportIndex = () => import('@/views/Workbenches/ExcellentsupportIndex')
+const Excellentsupport = () => import('@/views/Workbenches/Excellentsupport')
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +25,23 @@ export default new Router({
           path: 'basic',
           component: Basic,
           name: '基本信息'
+        }
+      ]
+    },
+    {
+      path: '/workbenches',
+      name: '业务工作平台',
+      component: MainLayout,
+      children: [
+        {
+          path: 'excellentSupport',
+          component: ExcellentsupportIndex,
+          name: '优扶'
+        },
+        {
+          path: 'excellentSupportDetail',
+          component: Excellentsupport,
+          name: '申请优扶'
         }
       ]
     }

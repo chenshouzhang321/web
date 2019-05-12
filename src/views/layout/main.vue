@@ -28,6 +28,7 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
          <i class="el-icon-s-tools"></i>
          <span slot="title">业务工作平台</span>
      </template>
+     <el-menu-item index="/workbenches/excellentSupport" >优扶</el-menu-item>
   </el-submenu>
   <el-submenu index="3">
       <template slot="title">
