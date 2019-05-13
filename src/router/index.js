@@ -8,6 +8,7 @@ const ExcellentsupportIndex = () => import('@/views/Workbenches/Excellentsupport
 const Excellentsupport = () => import('@/views/Workbenches/Excellentsupport')
 const InsuranceconnectionIndex = () => import('@/views/Workbenches/InsuranceconnectionIndex')
 const Insuranceconnection = () => import('@/views/Workbenches/Insuranceconnection')
+const ServiceCenter = () => import('@/views/Workbenches/index')
 const Home = () => import('@/views/Home/Home')
 Vue.use(Router)
 
@@ -41,6 +42,12 @@ export default new Router({
       name: '业务工作平台',
       component: MainLayout,
       children: [
+        {
+          path: 'serviceCenter',
+          component: ServiceCenter,
+          name: '服务中心站'
+
+        },
         {
           path: 'excellentSupport',
           component: ExcellentsupportIndex,

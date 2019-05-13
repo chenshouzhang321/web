@@ -31,8 +31,7 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
          <i class="el-icon-s-tools"></i>
          <span slot="title">业务工作平台</span>
      </template>
-     <el-menu-item index="/workbenches/excellentSupport" >优扶</el-menu-item>
-     <el-menu-item index="/workbenches/insuranceconnection" >保险接续</el-menu-item>
+     <el-menu-item index="/workbenches/serviceCenter" >服务中心站</el-menu-item>
   </el-submenu>
   <el-submenu index="3">
       <template slot="title">
@@ -61,7 +60,7 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
 </el-menu>
 </el-aside>
 
-<el-container style="background:#f0f2f5">
+<el-container style="background:#f0f2f5" direction="vertical">
 <el-header style=" font-size: 12px;background:#fff" v-if="path!='/home'">
   <el-row type="flex" align="middle" justify="center" style="height:100%">
     <el-col :span="12"><i @click="changeAside" style="font-size:18px" class="el-icon-s-fold"></i></el-col>

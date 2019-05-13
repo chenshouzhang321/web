@@ -58,7 +58,7 @@
         <el-button
           @click="add"
           icon="el-icon-plus"
-          size="small">
+          >
           申请优扶
         </el-button>
         <el-button
