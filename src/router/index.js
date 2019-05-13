@@ -12,6 +12,10 @@ const ServiceCenter = () => import('@/views/Workbenches/index')
 const Search = () => import('@/views/Statisticalplatform/Search')
 const Chart = () => import('@/views/Statisticalplatform/Chart')
 const Home = () => import('@/views/Home/Home')
+const Addtask = () => import('@/views/Task/Addtask')
+const Taskpush = () => import('@/views/Task/Taskpush')
+const AddSupervisioninspection = () => import('@/views/Task/AddSupervisioninspection')
+const Supervisioninspection = () => import('@/views/Task/Supervisioninspection')
 Vue.use(Router)
 
 export default new Router({
@@ -86,6 +90,33 @@ export default new Router({
           path: 'chart',
           component: Chart,
           name: '图表'
+        }
+      ]
+    },
+    {
+      path: '/task',
+      name: '任务管理平台',
+      component: MainLayout,
+      children: [
+        {
+          path: 'taskpush',
+          component: Taskpush,
+          name: '任务推送'
+        },
+        {
+          path: 'addtask',
+          component: Addtask,
+          name: '新建任务'
+        },
+        {
+          path: 'supervisioninspection',
+          component: Supervisioninspection,
+          name: '督导督查'
+        },
+        {
+          path: 'addSupervisioninspection',
+          component: AddSupervisioninspection,
+          name: '督查'
         }
       ]
     }

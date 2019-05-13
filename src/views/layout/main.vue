@@ -38,6 +38,8 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
          <i class="el-icon-s-tools"></i>
          <span slot="title">任务管理平台</span>
      </template>
+     <el-menu-item index="/task/taskpush" >任务推送</el-menu-item>
+     <el-menu-item index="/task/supervisioninspection" >督导督查</el-menu-item>
   </el-submenu>
   <el-submenu index="4">
       <template slot="title">
