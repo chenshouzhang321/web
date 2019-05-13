@@ -21,13 +21,14 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
          <i class="el-icon-view"></i>
          <span slot="title">信息采集平台</span>
      </template>
-     <el-menu-item index="/imCollection/basicInformation" >基本信息</el-menu-item>
+     <el-menu-item index="/imCollection/basic" >基本信息</el-menu-item>
   </el-submenu>
   <el-submenu index="2">
       <template slot="title">
          <i class="el-icon-s-tools"></i>
          <span slot="title">业务工作平台</span>
      </template>
+     <el-menu-item index="/workbenches/excellentSupport" >优扶</el-menu-item>
   </el-submenu>
   <el-submenu index="3">
       <template slot="title">
