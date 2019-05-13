@@ -10,6 +10,7 @@ const InsuranceconnectionIndex = () => import('@/views/Workbenches/Insuranceconn
 const Insuranceconnection = () => import('@/views/Workbenches/Insuranceconnection')
 const ServiceCenter = () => import('@/views/Workbenches/index')
 const Search = () => import('@/views/Statisticalplatform/Search')
+const Chart = () => import('@/views/Statisticalplatform/Chart')
 const Home = () => import('@/views/Home/Home')
 Vue.use(Router)
 
@@ -80,6 +81,11 @@ export default new Router({
           path: 'search',
           component: Search,
           name: '查询'
+        },
+        {
+          path: 'chart',
+          component: Chart,
+          name: '图表'
         }
       ]
     }

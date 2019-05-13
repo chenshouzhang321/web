@@ -1,0 +1,17 @@
+.Home{
+  .common-main{
+    margin: 0px;
+    padding: 20px;
+    .el-row{
+      height: 40px;
+    }
+    .summery{
+      img{
+        width: 30px;
+        border-radius: 50%;
+        position: relative;
+        top: -10px;
+      }
+    }
+  }
+}
