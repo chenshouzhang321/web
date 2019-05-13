@@ -9,6 +9,7 @@ const Excellentsupport = () => import('@/views/Workbenches/Excellentsupport')
 const InsuranceconnectionIndex = () => import('@/views/Workbenches/InsuranceconnectionIndex')
 const Insuranceconnection = () => import('@/views/Workbenches/Insuranceconnection')
 const ServiceCenter = () => import('@/views/Workbenches/index')
+const Search = () => import('@/views/Statisticalplatform/Search')
 const Home = () => import('@/views/Home/Home')
 Vue.use(Router)
 
@@ -67,6 +68,18 @@ export default new Router({
           path: 'insuranceconnectionDetail',
           component: Insuranceconnection,
           name: '申请保险接续'
+        }
+      ]
+    },
+    {
+      path: '/statisticalplatform',
+      name: '统计查询平台',
+      component: MainLayout,
+      children: [
+        {
+          path: 'search',
+          component: Search,
+          name: '查询'
         }
       ]
     }

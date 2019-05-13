@@ -44,6 +44,7 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
          <i class="el-icon-s-tools"></i>
          <span slot="title">统计查询平台</span>
      </template>
+     <el-menu-item index="/statisticalplatform/search" >查询</el-menu-item>
   </el-submenu>
   <el-submenu index="5">
       <template slot="title">
