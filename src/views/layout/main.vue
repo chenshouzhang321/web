@@ -3,6 +3,7 @@
 <el-aside width="210px" style="background:#393C4F" >
 
 <div style="background:#002140;height:40px;line-height;40px;position:relative">
+ <router-link to="/home">
   <div style="
   background: rgb(66, 85, 104);
 height: 30px;
@@ -14,7 +15,9 @@ position: absolute;
 left: 50%;
 top: 50%;
 transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
+</router-link>
 </div>
+
 <el-menu :default-active="path"  :router="true" style="width:100%"   background-color="#393C4F" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff">
   <el-submenu index="1">
       <template slot="title">
@@ -29,6 +32,7 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
          <span slot="title">业务工作平台</span>
      </template>
      <el-menu-item index="/workbenches/excellentSupport" >优扶</el-menu-item>
+     <el-menu-item index="/workbenches/insuranceconnection" >保险接续</el-menu-item>
   </el-submenu>
   <el-submenu index="3">
       <template slot="title">
@@ -58,14 +62,14 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
 </el-aside>
 
 <el-container style="background:#f0f2f5">
-<el-header style=" font-size: 12px;background:#fff">
+<el-header style=" font-size: 12px;background:#fff" v-if="path!='/home'">
   <el-row type="flex" align="middle" justify="center" style="height:100%">
     <el-col :span="12"><i @click="changeAside" style="font-size:18px" class="el-icon-s-fold"></i></el-col>
     <el-col :span="12"></el-col>
   </el-row>
 </el-header>
 <el-main style="margin-top:2px;background:#fff;padding:0px">
-  <div class="breadcrumb_div">
+  <div class="breadcrumb_div" v-if="path!='/home'">
     <el-breadcrumb separator="/" >
         <el-breadcrumb-item  v-for=" bread in breads">{{bread.name}}</el-breadcrumb-item>
     </el-breadcrumb>

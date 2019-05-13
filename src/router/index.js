@@ -6,6 +6,9 @@ const BasicInformation = () => import('@/views/ImCollection/BasicInformation')
 const Basic = () => import('@/views/ImCollection/index')
 const ExcellentsupportIndex = () => import('@/views/Workbenches/ExcellentsupportIndex')
 const Excellentsupport = () => import('@/views/Workbenches/Excellentsupport')
+const InsuranceconnectionIndex = () => import('@/views/Workbenches/InsuranceconnectionIndex')
+const Insuranceconnection = () => import('@/views/Workbenches/Insuranceconnection')
+const Home = () => import('@/views/Home/Home')
 Vue.use(Router)
 
 export default new Router({
@@ -25,7 +28,12 @@ export default new Router({
           path: 'basic',
           component: Basic,
           name: '基本信息'
-        }
+        },
+        {
+          path: '/home',
+          name: '主页',
+          component: Home
+        },
       ]
     },
     {
@@ -42,6 +50,16 @@ export default new Router({
           path: 'excellentSupportDetail',
           component: Excellentsupport,
           name: '申请优扶'
+        },
+        {
+          path: 'insuranceconnection',
+          component: InsuranceconnectionIndex,
+          name: '保险接续'
+        },
+        {
+          path: 'insuranceconnectionDetail',
+          component: Insuranceconnection,
+          name: '申请保险接续'
         }
       ]
     }
