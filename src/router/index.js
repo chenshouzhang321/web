@@ -51,28 +51,58 @@ export default new Router({
         {
           path: 'serviceCenter',
           component: ServiceCenter,
-          name: '服务中心站'
+          name: '服务中心（站）工作'
 
         },
         {
           path: 'excellentSupport',
           component: ExcellentsupportIndex,
-          name: '优扶'
+          name: '服务中心（站）工作 / 优扶'
         },
         {
           path: 'excellentSupportDetail',
           component: Excellentsupport,
-          name: '申请优扶'
+          name: '服务中心（站）工作 / 申请优扶'
         },
         {
           path: 'insuranceconnection',
           component: InsuranceconnectionIndex,
-          name: '保险接续'
+          name: '服务中心（站）工作 / 保险接续'
         },
         {
           path: 'insuranceconnectionDetail',
           component: Insuranceconnection,
-          name: '申请保险接续'
+          name: '服务中心（站）工作 / 申请保险接续'
+        },
+        {
+          path: '1',
+          name: '机构人事管理',
+        },
+        {
+          path: '2',
+          name: '政策法规管理',
+        },
+        {
+          path: '3',
+          name: '思想政治和权益维护管理',
+        },{
+          path: '4',
+          name: '规划财务管理',
+        },{
+          path: '5',
+          name: '移交安置管理',
+        },{
+          path: '6',
+          name: '就业创业管理',
+        },{
+          path: '7',
+          name: '军休服务管理',
+        },{
+          path: '8',
+          name: '优抚褒扬纪念管理',
+        },{
+          path: '9',
+          name: '双拥工作管理',
         }
       ]
     },
@@ -90,6 +120,14 @@ export default new Router({
           path: 'chart',
           component: Chart,
           name: '图表'
+        },
+        {
+          path: '1',
+          name: '报表'
+        },
+        {
+          path: '2',
+          name: '通讯录'
         }
       ]
     },
@@ -119,6 +157,40 @@ export default new Router({
           name: '督查'
         }
       ]
-    }
+    },
+    {
+      path: '/imageService',
+      name: '图像管理平台',
+      component: MainLayout,
+      children: [
+        {
+          path: '1',
+          name: '图像来源'
+        },
+        {
+          path: '2',
+          name: '管理'
+        },
+      ]
+    },
+    {
+      path: '/policythinktank',
+      name: '政策智库平台',
+      component: MainLayout,
+      children: [
+        {
+          path: '1',
+          name: ' 政策法规'
+        },
+        {
+          path: '2',
+          name: '在线答疑'
+        },
+        {
+          path: '3',
+          name: '政策模型'
+        }
+      ]
+    },
   ]
 })

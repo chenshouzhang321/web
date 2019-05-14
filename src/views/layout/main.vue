@@ -14,7 +14,7 @@ line-height: 30px;
 position: absolute;
 left: 50%;
 top: 50%;
-transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
+transform: translate(-50%,-50%);">山东省退役军人信息化应用中心</div>
 </router-link>
 </div>
 
@@ -31,7 +31,16 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
          <i class="el-icon-s-tools"></i>
          <span slot="title">业务工作平台</span>
      </template>
-     <el-menu-item index="/workbenches/serviceCenter" >服务中心站</el-menu-item>
+     <el-menu-item index="/workbenches/1" >机构人事管理</el-menu-item>
+     <el-menu-item index="/workbenches/2" >政策法规管理</el-menu-item>
+     <el-menu-item index="/workbenches/3" >思想政治和权益维护管理</el-menu-item>
+     <el-menu-item index="/workbenches/4" >规划财务管理</el-menu-item>
+     <el-menu-item index="/workbenches/5" >移交安置管理</el-menu-item>
+     <el-menu-item index="/workbenches/6" >就业创业管理</el-menu-item>
+     <el-menu-item index="/workbenches/7" >军休服务管理</el-menu-item>
+     <el-menu-item index="/workbenches/8" >优抚褒扬纪念管理</el-menu-item>
+     <el-menu-item index="/workbenches/9" >双拥工作管理</el-menu-item>
+     <el-menu-item index="/workbenches/serviceCenter" >服务中心（站）工作</el-menu-item>
   </el-submenu>
   <el-submenu index="3">
       <template slot="title">
@@ -48,18 +57,25 @@ transform: translate(-50%,-50%);">山东省退役军人服务平台</div>
      </template>
      <el-menu-item index="/statisticalplatform/search" >查询</el-menu-item>
      <el-menu-item index="/statisticalplatform/chart" >图表</el-menu-item>
+     <el-menu-item index="/statisticalplatform/1" >报表</el-menu-item>
+     <el-menu-item index="/statisticalplatform/2" >通讯录</el-menu-item>
   </el-submenu>
   <el-submenu index="5">
       <template slot="title">
          <i class="el-icon-s-tools"></i>
          <span slot="title">图像存储平台</span>
      </template>
+     <el-menu-item index="/imageService/1" >图像来源</el-menu-item>
+     <el-menu-item index="/imageService/2" >管理</el-menu-item>
   </el-submenu>
   <el-submenu index="6">
       <template slot="title">
          <i class="el-icon-s-tools"></i>
-         <span slot="title">政策智库</span>
+         <span slot="title">政策智库平台</span>
      </template>
+     <el-menu-item index="/policythinktank/1" >政策法规</el-menu-item>
+     <el-menu-item index="/policythinktank/2" >在线答疑</el-menu-item>
+     <el-menu-item index="/policythinktank/3" >政策模型</el-menu-item>
   </el-submenu>
 </el-menu>
 </el-aside>

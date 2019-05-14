@@ -4,7 +4,7 @@
         <el-form ref="form" label-width="40px"  :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
             <el-row :gutter="10">
                 <el-col :span="18">
-                  <el-form-item label="姓名">
+                  <el-form-item label="">
                     <el-input v-model="form.name"></el-input>
                   </el-form-item>
                 </el-col>
@@ -63,11 +63,11 @@
         </el-button>
         <el-button
           >
-          Excel导出
+          导出
         </el-button>
         <el-button
           >
-          Excel导入
+          导入
         </el-button>
       </div>
       <el-table

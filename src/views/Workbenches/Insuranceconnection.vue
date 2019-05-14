@@ -1,6 +1,6 @@
 <template>
   <div class="Insuranceconnectiondetail common-content">
-    <div class="common-header">申请保险接续 <el-button size="medium" class="nextBTN" @click="changeSetpState">下一步</el-button></div>
+    <div class="common-header">申请保险接续 </div>
     <div class="common-main">
       <div class="setpsdiv">
         <el-steps :active="active">
@@ -117,6 +117,11 @@
                         </el-col>
                     </el-row>
                 </div>
+                <el-row :gutter="10" style="padding:30px;">
+                  <el-col :span="24" style="text-align:center">
+                    <el-button size="medium"  @click="changeSetpState">下一步</el-button>
+                  </el-col>
+                </el-row>
         </el-form>
       </div>
 
@@ -143,6 +148,11 @@
                           <el-input type="textarea"  v-model="form.审批意见1"></el-input>
                         </el-form-item>
                       </el-col>
+                </el-row>
+                <el-row :gutter="10" style="padding:30px;">
+                  <el-col :span="24" style="text-align:center">
+                    <el-button size="medium"  @click="changeSetpState">提交</el-button>
+                  </el-col>
                 </el-row>
             </el-form>
           </div>

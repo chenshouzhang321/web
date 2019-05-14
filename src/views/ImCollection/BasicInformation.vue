@@ -33,7 +33,7 @@
                   </el-row>
 
                   <el-row :gutter="10">
-                      <el-col :span="8">
+                      <el-col :span="12">
                         <el-form-item label="籍贯">
                           <el-select v-model="form.jg" placeholder="籍贯">
                             <el-option label="山东" value="1"></el-option>
@@ -42,7 +42,7 @@
                           </el-select>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="8">
+                      <el-col :span="12">
                         <el-form-item label="证件类型">
                           <el-select v-model="form.zjlx" placeholder="证件类型">
                             <el-option label="身份证" value="1"></el-option>
@@ -50,13 +50,14 @@
                           </el-select>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="8">
+                  </el-row>
+                  <el-row :gutter="10">
+                      <el-col :span="24">
                         <el-form-item label="证件号">
-                          <el-input v-model="form.zhengjinhao"></el-input>
+                          <el-input v-model="form.zhengjinhao" placeholder="18位数字"></el-input>
                         </el-form-item>
                       </el-col>
                   </el-row>
-
                   <el-row :gutter="10">
                       <el-col :span="8">
                         <el-form-item label="民族">
