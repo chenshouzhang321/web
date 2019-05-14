@@ -11,6 +11,7 @@ const Insuranceconnection = () => import('@/views/Workbenches/Insuranceconnectio
 const ServiceCenter = () => import('@/views/Workbenches/index')
 const Search = () => import('@/views/Statisticalplatform/Search')
 const Chart = () => import('@/views/Statisticalplatform/Chart')
+const Addressbook = () => import('@/views/Statisticalplatform/Addressbook')
 const Home = () => import('@/views/Home/Home')
 const Addtask = () => import('@/views/Task/Addtask')
 const Taskpush = () => import('@/views/Task/Taskpush')
@@ -126,8 +127,9 @@ export default new Router({
           name: '报表'
         },
         {
-          path: '2',
-          name: '通讯录'
+          path: 'addressbook',
+          name: '通讯录',
+          component: Addressbook,
         }
       ]
     },

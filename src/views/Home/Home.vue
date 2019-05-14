@@ -4,15 +4,15 @@
     <div class="common-main">
       <el-row class="summery">
         <el-col span="1"><img :src="imgUrl"></el-col>
-        <el-col span="12">欢迎登录退役军人信息化应用中心</el-col>
-        <el-col span="4">待办</el-col>
-        <el-col span="6">已办</el-col>
+        <el-col span="14" style="font-size: 16px;font-weight: bold;">欢迎登录退役军人信息化应用中心</el-col>
+        <el-col span="4" style="color:#B4B4B4">待办</el-col>
+        <el-col span="4" style="color:#B4B4B4">已办</el-col>
       </el-row>
       <el-row>
         <el-col span="1">&nbsp;</el-col>
-        <el-col span="12">登录时间：2019-05-04</el-col>
-        <el-col span="4">12</el-col>
-        <el-col span="6">122</el-col>
+        <el-col span="14" style="color:#B4B4B4">系统管理员 | 登录时间：2019-05-04</el-col>
+        <el-col span="4" style="font-size: 22px;font-weight: bold;">12</el-col>
+        <el-col span="4" style="font-size: 22px;font-weight: bold;">122</el-col>
       </el-row>
       <div :id="chartId" style="width:100%;height:400px;"></div>
       <el-row style="width:100%;height:300px;">
@@ -144,7 +144,9 @@ export default {
 		data: [800, 500, 200, 100, 50, 10],
 		pointPlacement: 'on'
 	}]
-}
+},
+
+
     }
 
   },
@@ -154,7 +156,7 @@ export default {
         HighCharts.chart(self.chartId, self.option)
         HighCharts.chart(self.chartId2, self.option2)
         HighCharts.chart(self.chartId3, self.option3)
-      },1000)
+      },500)
 
         },
   methods:{

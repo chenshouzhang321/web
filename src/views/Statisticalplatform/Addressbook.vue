@@ -1,18 +1,16 @@
 <template>
-  <div class="ImCollection common-content">
+  <div class="Addressbook common-content">
     <div class="common-header">
         <el-form ref="form" label-width="70px"  :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
             <el-row :gutter="10">
                 <el-col :span="12">
-                  <el-form-item label="姓名">
+                  <el-form-item label="">
                     <el-input v-model="form.name"></el-input>
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="12">
                     <el-button icon="el-icon-search">智能搜索</el-button>
-                    <el-button v-if="!showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-down" >高级搜索</el-button>
-                    <el-button v-if="showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-up" >高级搜索</el-button>
                 </el-col>
             </el-row>
             <div v-if="showHightSearch">
@@ -112,76 +110,69 @@
         </el-form>
     </div>
     <div class="common-main">
-      <div class="common-header" style="text-align:right;border-bottom: 1px solid #f0f0f0;">
-        <el-button
-        size="mini"
-          >
-          导出
-        </el-button>
-      </div>
-      <el-table
-          :data="tableData"
-          stripe
-          size="mini"
-          style="width: 100%">
-          <el-table-column
-            type="selection"
-            width="55">
-          </el-table-column>
-          <el-table-column
-            prop="xh"
-            label="序号"
-            width="50">
-          </el-table-column>
-          <el-table-column
-            prop="zp"
-            label="照片"
-            width="50">
-          </el-table-column>
-          <el-table-column
-            prop="xm"
-            label="姓名">
-          </el-table-column>
-          <el-table-column
-            prop="xb"
-            label="性别">
-          </el-table-column>
-          <el-table-column
-            prop="sfzh"
-            label="身份证号">
-          </el-table-column>
-          <el-table-column
-            prop="rylb"
-            label="人员类别">
-          </el-table-column>
-          <el-table-column
-            prop="cjrq"
-            label="采集日期">
-          </el-table-column>
-          <el-table-column
-            prop="scdj"
-            label="伤残等级">
-          </el-table-column>
-      </el-table>
-      <div class="pagination">
-        <el-pagination
-        :small="true"
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage4"
-          :page-sizes="[100, 200, 300, 400]"
-          :page-size="100"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="400">
-        </el-pagination>
-    </div>
+      <el-row>
+          <el-col :span="6" style="border-right:1px solid #f0f0f0;padding:10px">
+            <el-tree :data="data"   node-key="id"
+  :default-expanded-keys="[1]" :props="defaultProps"></el-tree>
+          </el-col>
+          <el-col :span="18">
+              <el-table
+                  :data="tableData"
+                  stripe
+                  size="mini"
+                  style="width: 100%">
+                  <el-table-column
+                    prop="xh"
+                    label="序号"
+                    width="50">
+                  </el-table-column>
+                  <el-table-column
+                    prop="xm"
+                    label="姓名">
+                  </el-table-column>
+                  <el-table-column
+                    prop="xb"
+                    label="性别">
+                  </el-table-column>
+                  <el-table-column
+                    prop="sjh"
+                    label="手机号">
+                  </el-table-column>
+                  <el-table-column
+                    prop="zw"
+                    label="职务">
+                  </el-table-column>
+                  <el-table-column
+                    prop="bmmc"
+                    label="部门名称">
+                  </el-table-column>
+                  <el-table-column
+                    prop="gh"
+                    label="固定电话">
+                  </el-table-column>
+              </el-table>
+              <div class="pagination">
+                <el-pagination
+                  :small="true"
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage4"
+                  :page-sizes="[100, 200, 300, 400]"
+                  :page-size="100"
+                  layout="total, sizes, prev, pager, next, jumper"
+                  :total="400">
+                </el-pagination>
+            </div>
+          </el-col>
+      </el-row>
+
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Search',
+  name: 'Addressbook',
   data () {
     return {
       form:{
@@ -194,62 +185,63 @@ export default {
       showHightSearch:false,
       tableData: [{
           xh: '1',
-          zp: '',
           xm: '张三',
           xb:'男',
-          sfzh:'330928382387444',
-          djrq:'2019-03-03',
-          cjrq:'2019-03-04',
-          rylb:'兵工改',
-          fxje:'2000',
-          scdj:"1级"
+          sjh:'13809009988',
+          zw:'科员',
+          bmmc:'服务中心',
+          gh:'034-99998888'
         }, {
           xh: '2',
-          zp: '',
           xm: '张三',
           xb:'男',
-          sfzh:'330928382387444',
-          djrq:'2019-03-03',
-          cjrq:'2019-03-04',
-          rylb:'兵工改',
-          fxje:'2000',
-          scdj:"2级"
+          sjh:'13809009988',
+          zw:'科员',
+          bmmc:'服务中心',
+          gh:'034-99998888'
         }, {
           xh: '3',
-          zp: '',
           xm: '张三',
           xb:'男',
-          sfzh:'330928382387444',
-          djrq:'2019-03-03',
-          cjrq:'2019-03-04',
-          rylb:'兵工改',
-          fxje:'2000',
-          scdj:"1级"
+          sjh:'13809009988',
+          zw:'科员',
+          bmmc:'服务中心',
+          gh:'034-99998888'
         }, {
           xh: '4',
-          zp: '',
           xm: '张三',
           xb:'男',
-          sfzh:'330928382387444',
-          djrq:'2019-03-03',
-          cjrq:'2019-03-04',
-          rylb:'兵工改',
-          fxje:'2000',
-          scdj:"1级"
+          sjh:'13809009988',
+          zw:'科员',
+          bmmc:'服务中心',
+          gh:'034-99998888'
         },
         {
          xh: '5',
-         zp: '',
          xm: '张三',
          xb:'男',
-         sfzh:'330928382387444',
-         djrq:'2019-03-03',
-         cjrq:'2019-03-04',
-         rylb:'兵工改',
-         fxje:'2000',
-         scdj:"1级"
+         sjh:'13809009988',
+         zw:'科员',
+         bmmc:'服务中心',
+         gh:'034-99998888'
        }
-        ]
+        ],
+
+        data: [{
+            label: '退役军人事业厅',
+            id:1,
+            children: [
+            {label: '机构人事管理处'},
+            {label: '政策法规管理处'},
+            {label: '思想政治和权益维护管理处'},
+            {label: '政策法规管理处'},
+            {label: '服务中心'}
+              ]
+          }],
+          defaultProps: {
+            children: 'children',
+            label: 'label'
+          }
     }
   },
   methods:{

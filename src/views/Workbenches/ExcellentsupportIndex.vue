@@ -3,13 +3,13 @@
     <div class="common-header">
         <el-form ref="form" label-width="40px"  :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
             <el-row :gutter="10">
-                <el-col :span="18">
+                <el-col :span="12">
                   <el-form-item label="">
                     <el-input v-model="form.name"></el-input>
                   </el-form-item>
                 </el-col>
 
-                <el-col :span="6">
+                <el-col :span="12">
                     <el-button icon="el-icon-search">智能搜索</el-button>
                     <el-button v-if="!showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-down" >高级搜索</el-button>
                     <el-button v-if="showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-up" >高级搜索</el-button>
@@ -54,18 +54,21 @@
         </el-form>
     </div>
     <div class="common-main">
-      <div class="common-header" style="text-align:right">
+      <div class="common-header" style="text-align:right;border-bottom: 1px solid #f0f0f0;">
         <el-button
           @click="add"
           icon="el-icon-plus"
+          size="mini"
           >
           申请优扶
         </el-button>
         <el-button
+        size="mini"
           >
           导出
         </el-button>
         <el-button
+        size="mini"
           >
           导入
         </el-button>
@@ -73,6 +76,7 @@
       <el-table
           :data="tableData"
           stripe
+          size="mini"
           style="width: 100%">
           <el-table-column
             type="selection"
@@ -135,6 +139,7 @@
       </el-table>
       <div class="pagination">
         <el-pagination
+        :small="true"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page="currentPage4"

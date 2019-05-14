@@ -7,10 +7,11 @@
     </el-tabs>
     </div>
     <div class="common-main">
-      <div class="common-header" style="text-align:right">
+      <div class="common-header" style="text-align:right;border-bottom: 1px solid #f0f0f0;">
         <el-button
           @click="add"
           icon="el-icon-plus"
+          size="mini"
           >
           新建任务
         </el-button>
@@ -18,6 +19,7 @@
       <el-table
           :data="tableData"
           stripe
+          size="mini"
           style="width: 100%">
           </el-table-column>
           <el-table-column
@@ -55,6 +57,7 @@
       </el-table>
       <div class="pagination">
         <el-pagination
+        :small="true"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page="currentPage4"

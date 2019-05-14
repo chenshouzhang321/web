@@ -509,31 +509,7 @@
                                     <i class="el-icon-plus"></i>
                                 </div>
                               </el-col>
-                              <el-col :span="4">
-                                <div class="imgzp zjz">
-                                    <i class="el-icon-plus"></i>
-                                </div>
-                              </el-col>
-                              <el-col :span="4">
-                                <div class="imgzp zjz">
-                                    <i class="el-icon-plus"></i>
-                                </div>
-                              </el-col>
-                              <el-col :span="4">
-                                <div class="imgzp zjz">
-                                    <i class="el-icon-plus"></i>
-                                </div>
-                              </el-col>
-                              <el-col :span="4">
-                                <div class="imgzp zjz">
-                                    <i class="el-icon-plus"></i>
-                                </div>
-                              </el-col>
-                              <el-col :span="4">
-                                <div class="imgzp zjz">
-                                    <i class="el-icon-plus"></i>
-                                </div>
-                              </el-col>
+
                           </el-row>
                       </el-col>
                   </el-row>
@@ -547,21 +523,7 @@
                               <el-col :span="4">
                                 <el-input size="mini" v-model="form.残疾证件号码1" ></el-input>
                               </el-col>
-                              <el-col :span="4">
-                                <el-input size="mini" v-model="form.残疾证件号码2" ></el-input>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-input size="mini" v-model="form.残疾证件号码3" ></el-input>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-input size="mini" v-model="form.残疾证件号码4" ></el-input>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-input size="mini" v-model="form.残疾证件号码5" ></el-input>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-input size="mini" v-model="form.残疾证件号码6" ></el-input>
-                              </el-col>
+
                           </el-row>
                       </el-col>
                   </el-row>
@@ -575,21 +537,7 @@
                               <el-col :span="4">
                                 <el-date-picker type="date" placeholder="选择日期" v-model="form.证件有效期1" ></el-date-picker>
                               </el-col>
-                              <el-col :span="4">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="form.证件有效期2"></el-date-picker>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="form.证件有效期3" ></el-date-picker>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="form.证件有效期4" ></el-date-picker>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="form.证件有效期5" ></el-date-picker>
-                              </el-col>
-                              <el-col :span="4">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="form.证件有效期6" ></el-date-picker>
-                              </el-col>
+                            
                           </el-row>
                       </el-col>
                   </el-row>

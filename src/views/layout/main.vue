@@ -1,8 +1,15 @@
 <template>
 <el-container style="height:100%">
-<el-aside width="210px" style="background:#393C4F" >
+<el-aside width="210px" style="background:#393C4F;    position: relative;
+    overflow: hidden;" >
 
-<div style="background:#002140;height:40px;line-height;40px;position:relative">
+<div style="background:#002140;height:40px;line-height;40px;
+position:absolute;
+top:0px;
+left:0px;
+width:100%;
+z-index:100000;
+">
  <router-link to="/home">
   <div style="
   background: rgb(66, 85, 104);
@@ -18,7 +25,11 @@ transform: translate(-50%,-50%);">山东省退役军人信息化应用中心</di
 </router-link>
 </div>
 
-<el-menu :default-active="path"  :router="true" style="width:100%"   background-color="#393C4F" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff">
+<el-menu :default-active="path"  :router="true" style="width:100%;
+padding-top: 40px;
+overflow: auto;
+height: 100%;
+"   background-color="#393C4F" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff">
   <el-submenu index="1">
       <template slot="title">
          <i class="el-icon-view"></i>
@@ -58,7 +69,7 @@ transform: translate(-50%,-50%);">山东省退役军人信息化应用中心</di
      <el-menu-item index="/statisticalplatform/search" >查询</el-menu-item>
      <el-menu-item index="/statisticalplatform/chart" >图表</el-menu-item>
      <el-menu-item index="/statisticalplatform/1" >报表</el-menu-item>
-     <el-menu-item index="/statisticalplatform/2" >通讯录</el-menu-item>
+     <el-menu-item index="/statisticalplatform/addressbook" >通讯录</el-menu-item>
   </el-submenu>
   <el-submenu index="5">
       <template slot="title">

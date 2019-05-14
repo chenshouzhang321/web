@@ -10,13 +10,13 @@
       <div class="common-header" style="text-align:right">
       <el-form ref="form" label-width="40px"  :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
           <el-row :gutter="10">
-              <el-col :span="18">
+              <el-col :span="12">
                 <el-form-item label="">
                   <el-input v-model="form.name"></el-input>
                 </el-form-item>
               </el-col>
 
-              <el-col :span="6">
+              <el-col :span="12" style="text-align:left">
                   <el-button icon="el-icon-search">智能搜索</el-button>
                   <el-button v-if="!showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-down" >高级搜索</el-button>
                   <el-button v-if="showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-up" >高级搜索</el-button>
@@ -63,6 +63,7 @@
       <el-table
           :data="tableData"
           stripe
+          size="mini"
           style="width: 100%">
           <el-table-column
             type="selection"
@@ -117,6 +118,7 @@
       </el-table>
       <div class="pagination">
         <el-pagination
+        :small="true"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page="currentPage4"

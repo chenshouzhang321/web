@@ -3,13 +3,13 @@
     <div class="common-header">
         <el-form ref="form" label-width="40px"  :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
             <el-row :gutter="10">
-                <el-col :span="18">
+                <el-col :span="12">
                   <el-form-item label="">
                     <el-input v-model="form.name"></el-input>
                   </el-form-item>
                 </el-col>
 
-                <el-col :span="6">
+                <el-col :span="12">
                     <el-button icon="el-icon-search">智能搜索</el-button>
                     <el-button v-if="!showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-down" >高级搜索</el-button>
                     <el-button v-if="showHightSearch" @click="changeHightSearchState" icon="el-icon-arrow-up" >高级搜索</el-button>
@@ -54,18 +54,21 @@
         </el-form>
     </div>
     <div class="common-main">
-      <div class="common-header" style="text-align:right">
+      <div class="common-header" style="text-align:right;border-bottom: 1px solid #f0f0f0;">
         <el-button
           @click="add"
           icon="el-icon-plus"
+          size="mini"
           >
           新增
         </el-button>
         <el-button
+        size="mini"
           >
           导出
         </el-button>
         <el-button
+        size="mini"
           >
           导入
         </el-button>
@@ -73,6 +76,7 @@
       <el-table
           :data="tableData"
           stripe
+          size="mini"
           style="width: 100%">
           <el-table-column
             type="selection"
@@ -87,13 +91,18 @@
             prop="zp"
             label="照片"
             width="50">
+            <template slot-scope="scope">
+              <img class="userImg" :src="imgUrl" />
+              </template>
           </el-table-column>
           <el-table-column
             prop="xm"
+            width="80"
             label="姓名">
           </el-table-column>
           <el-table-column
             prop="xb"
+            width="50"
             label="性别">
           </el-table-column>
           <el-table-column
@@ -137,6 +146,7 @@
         <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
+          :small="true"
           :current-page="currentPage4"
           :page-sizes="[100, 200, 300, 400]"
           :page-size="100"
@@ -153,6 +163,7 @@ export default {
   name: 'ImCollection',
   data () {
     return {
+      imgUrl:require('../../images/user.png'),
       form:{
         zhi1:30,
         zhi2:40,
