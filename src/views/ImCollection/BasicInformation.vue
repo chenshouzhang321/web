@@ -11,13 +11,13 @@
           </el-aside>
           <el-container >
               <el-form ref="form" label-width="100px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
-                  <el-row :gutter="10">
-                      <el-col :span="8">
+                  <el-row :gutter="10" >
+                      <el-col :span="6">
                         <el-form-item label="姓名">
                           <el-input v-model="form.name"></el-input>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="8">
+                      <el-col :span="6">
                         <el-form-item label="性别">
                           <el-select v-model="form.sex" placeholder="性别">
                             <el-option label="男" value="1"></el-option>
@@ -25,15 +25,12 @@
                           </el-select>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="8">
+                      <el-col :span="6">
                         <el-form-item label="出身日期">
                           <el-date-picker type="date" placeholder="选择日期" v-model="form.chushengriqi" ></el-date-picker>
                         </el-form-item>
                       </el-col>
-                  </el-row>
-
-                  <el-row :gutter="10">
-                      <el-col :span="12">
+                      <el-col :span="6">
                         <el-form-item label="籍贯">
                           <el-select v-model="form.jg" placeholder="籍贯">
                             <el-option label="山东" value="1"></el-option>
@@ -42,6 +39,10 @@
                           </el-select>
                         </el-form-item>
                       </el-col>
+                  </el-row>
+
+                  <el-row :gutter="10">
+
                       <el-col :span="12">
                         <el-form-item label="证件类型">
                           <el-select v-model="form.zjlx" placeholder="证件类型">
@@ -50,16 +51,19 @@
                           </el-select>
                         </el-form-item>
                       </el-col>
-                  </el-row>
-                  <el-row :gutter="10">
-                      <el-col :span="24">
+                      <el-col :span="12">
                         <el-form-item label="证件号">
                           <el-input v-model="form.zhengjinhao" placeholder="18位数字"></el-input>
                         </el-form-item>
                       </el-col>
                   </el-row>
                   <el-row :gutter="10">
-                      <el-col :span="8">
+                      <el-col :span="6">
+                        <el-form-item label="邮编">
+                          <el-input v-model="form.yb"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :span="6">
                         <el-form-item label="民族">
                           <el-select v-model="form.mz" placeholder="民族">
                             <el-option label="空" value="1"></el-option>
@@ -68,39 +72,31 @@
                           </el-select>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="8">
+                      <el-col :span="6">
                         <el-form-item label="发证机关">
                           <el-select v-model="form.fzjg" placeholder="发证机关">
                             <el-option label="济南公安局" value="1"></el-option>
                           </el-select>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="8">
+                      <el-col :span="6">
                         <el-form-item label="有效期">
                             <el-date-picker type="date" placeholder="选择日期" v-model="form.yxq" ></el-date-picker>
                         </el-form-item>
                       </el-col>
                   </el-row>
                   <el-row :gutter="10">
-                      <el-col :span="16">
+                      <el-col :span="12">
                         <el-form-item label="户籍地址">
                           <el-input v-model="form.hjdz"></el-input>
                         </el-form-item>
                       </el-col>
-                  </el-row>
-                  <el-row :gutter="10">
-                      <el-col :span="16">
+                      <el-col :span="12">
                         <el-form-item label="居住地址">
                           <el-input v-model="form.jzdz"></el-input>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="8">
-                        <el-form-item label="邮编">
-                          <el-input v-model="form.yb"></el-input>
-                        </el-form-item>
-                      </el-col>
                   </el-row>
-
                   <el-row :gutter="10">
                       <el-col :span="6">
                         <el-form-item label="学历">
@@ -170,32 +166,29 @@
                         </el-form-item>
                       </el-col>
                   </el-row>
-                  <el-row :gutter="10">
-                      <el-col :span="12">
+                  <el-row :gutter="10" >
+                      <el-col :span="8">
                         <el-form-item label="个人特殊爱好">
                           <el-input v-model="form.grtsah"></el-input>
                         </el-form-item>
                       </el-col>
-                      <el-col :span="12">
-                        <el-form-item label="">
-                          <el-checkbox-group v-model="form.check_grtsah">
-                            <el-checkbox label="参战" name="type"></el-checkbox>
-                            <el-checkbox label="参试(涉核)" name="type"></el-checkbox>
-                            <el-checkbox label="参与重大任务" name="type"></el-checkbox>
-                          </el-checkbox-group>
-                        </el-form-item>
+                      <el-col :span="8">
+                      <el-form-item label-width="2px">
+                      <el-checkbox-group v-model="form.check_grtsah">
+                        <el-checkbox label="参战" name="type"></el-checkbox>
+                        <el-checkbox label="参试(涉核)" name="type"></el-checkbox>
+                        <el-checkbox label="参与重大任务" name="type"></el-checkbox>
+                      </el-checkbox-group>
+                      </el-form-item>
                       </el-col>
-                  </el-row>
-
-                  <el-row :gutter="10">
                       <el-col :span="8">
                         <el-form-item label="参加工作时间">
                           <el-date-picker type="date" placeholder="选择日期" v-model="form.cjgzsj" ></el-date-picker>
                         </el-form-item>
                       </el-col>
                   </el-row>
-
-                  <el-row :gutter="10">
+                  <div class="title">类别信息</div>
+                  <el-row :gutter="10" style="border:1px solid #f0f0f0;margin-bottom:20px;margin:0px 0px 20px 0px;">
                       <el-col :span="24">
                         <el-form-item label="">
                           <el-checkbox-group v-model="form.check_gzrenyuan">
@@ -217,11 +210,15 @@
                       </el-col>
                   </el-row>
                   <el-row :gutter="10">
-                      <el-col :span="12" style="text-align:center">全日制学历</el-col>
-                      <el-col :span="12" style="text-align:center">继续教育学历</el-col>
+                      <el-col :span="12" style="text-align:center">
+                        全日制学历
+                      </el-col>
+                      <el-col :span="12" style="text-align:center">
+                        继续教育学历
+                      </el-col>
                   </el-row>
                   <el-row :gutter="10" style="margin-top:10px">
-                      <el-col :span="12" >
+                      <el-col :span="12"  >
                           <el-row style="position:relative">
                             <el-col :span="12" >
                               <el-form-item label="开始日期">
@@ -241,14 +238,12 @@
                               </el-col>
                             </el-row>
                             <el-row >
-                              <el-col :span="24" >
+                              <el-col :span="12" >
                                 <el-form-item label="教学机构">
                                   <el-input v-model="form.qr_jxjg"></el-input>
                                 </el-form-item>
                               </el-col>
-                            </el-row>
-                            <el-row >
-                              <el-col :span="24" >
+                              <el-col :span="12" >
                                 <el-form-item label="专业">
                                   <el-input v-model="form.qr_zhuangye"></el-input>
                                 </el-form-item>
@@ -274,14 +269,12 @@
                             </el-col>
                           </el-row>
                           <el-row >
-                            <el-col :span="24" >
+                            <el-col :span="12" >
                               <el-form-item label="教学机构">
                                 <el-input v-model="form.jx_jxjg"></el-input>
                               </el-form-item>
                             </el-col>
-                          </el-row>
-                          <el-row >
-                            <el-col :span="24" >
+                            <el-col :span="12" >
                               <el-form-item label="专业">
                                 <el-input v-model="form.jx_zhuangye"></el-input>
                               </el-form-item>
@@ -537,7 +530,7 @@
                               <el-col :span="4">
                                 <el-date-picker type="date" placeholder="选择日期" v-model="form.证件有效期1" ></el-date-picker>
                               </el-col>
-                            
+
                           </el-row>
                       </el-col>
                   </el-row>

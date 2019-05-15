@@ -10,11 +10,13 @@
           <div :id="chartId3" style="width:100%;height:300px;"></div>
         </el-col>
     </el-row>
-      <el-row style="width:100%;height:300px;border-top: 2px solid rgb(240, 240, 240);">
-          <el-col span="12" style="border-right:1px solid #f0f0f0">
-            <div :id="chartId" style="width:100%;height:300px;"></div>
+      <el-row style="width:100%;height:500px;border-top: 2px solid rgb(240, 240, 240);">
+          <el-col span="24" style="border-right:1px solid #f0f0f0">
+            <div :id="chartId" style="width:100%;height:500px;"></div>
           </el-col>
-          <el-col span="12">
+      </el-row>
+      <el-row style="width:100%;height:300px;border-top: 2px solid rgb(240, 240, 240);">
+          <el-col span="24">
             <div :id="chartId4" style="width:100%;height:300px;"></div>
           </el-col>
       </el-row>
@@ -25,6 +27,9 @@
 <script>
 import HighCharts from 'highcharts'
 import highchartsMore from 'highcharts/highcharts-more';
+import  'echarts/theme/shine.js'
+import 'echarts/map/js/province/shandong.js';
+
   highchartsMore(HighCharts);
 export default {
   name: 'Home',
@@ -204,10 +209,124 @@ option4:{
   mounted() {
       var self=this;
       window.setTimeout(function(){
-        HighCharts.chart(self.chartId, self.option)
+      //  HighCharts.chart(self.chartId, self.option)
         HighCharts.chart(self.chartId2, self.option2)
         HighCharts.chart(self.chartId3, self.option3)
-        HighCharts.chart(self.chartId4, self.option4)
+        HighCharts.chart(self.chartId4, self.option4);
+        let myChart = self.$echarts.init(document.getElementById(self.chartId),'shine');
+
+        var option = {
+    title : {
+        text: '2011山东GDP（亿元）',
+        subtext: ''
+    },
+    tooltip : {
+        trigger: 'item'
+    },
+    legend: {
+        x:'right',
+        selectedMode:false,
+        data:['济南市','德州市','青岛市']
+    },
+    dataRange: {
+        orient: 'horizontal',
+        min: 0,
+        max: 55000,
+        text:['高','低'],           // 文本，默认为数值文本
+        splitNumber:0
+    },
+    toolbox: {
+        show : true,
+        orient: 'vertical',
+        x:'right',
+        y:'center',
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false}
+        }
+    },
+    series : [
+        {
+            name: '2011全国GDP分布',
+            type: 'map',
+            mapType: '山东',
+            mapLocation: {
+                x: 'left'
+            },
+            selectedMode : 'multiple',
+            itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
+            data:[
+                {name:'德州市', value:605.83, selected:true},
+                {name:'济南市', value:1670.44, selected:true},
+                {name:'青岛市', value:2102.21, selected:true},
+                {name:'聊城市', value:2522.66},
+                {name:'滨州市', value:5020.37},
+                {name:'淄博市', value:5701.84},
+                {name:'莱芜市', value:6610.05},
+                {name:'泰安市', value:8893.12},
+                {name:'济宁市', value:10011.37},
+                {name:'荷泽市', value:6610.83},
+                {name:'枣庄市', value:11237.55},
+                {name:'临沂市', value:11307.28},
+                {name:'日照市', value:11702.82},
+                {name:'潍坊市', value:11720.87},
+                {name:'烟台市', value:12512.3},
+                {name:'威海市', value:12582},
+
+            ]
+        },
+        {
+            name:'2011全国GDP对比',
+            type:'pie',
+            roseType : 'area',
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            center: [document.getElementById('chartId1').offsetWidth - 250, 225],
+            radius: [30, 120],
+            data:[
+                {name: '德州市', value: 16251.93},
+                {name: '济南市', value: 19195.69},
+                {name: '青岛市', value: 53210.28}
+            ]
+        }
+    ],
+    animation: false
+};
+      myChart.setOption(option);
+      myChart.on("mapselectchanged", function (param){
+    var selected = param.batch[0].selected;
+
+    var mapSeries = option.series[0];
+    var data = [];
+    var data1=[];
+
+    var legendData = [];
+    var name;
+    for (var p = 0, len = mapSeries.data.length; p < len; p++) {
+        name = mapSeries.data[p].name;
+        //mapSeries.data[p].selected = selected[name];
+        if(mapSeries.data[p].name==param.batch[0].name)
+        {
+          mapSeries.data[p].selected=!mapSeries.data[p].selected;
+        }
+        if (selected[name]) {
+            data.push({
+                name: name,
+                value: mapSeries.data[p].value
+            });
+            legendData.push(name);
+        }
+    }
+    option.legend.data = legendData;
+    option.series[0].data = mapSeries.data;
+    option.series[1].data = data;
+    myChart.setOption(option, true);
+    });
       },1000)
 
         },

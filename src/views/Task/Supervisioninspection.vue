@@ -2,8 +2,9 @@
   <div class="addSupervisioninspection common-content">
     <div class="common-header">
       <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="例行任务" name="first"></el-tab-pane>
-          <el-tab-pane label="重点任务" name="second"></el-tab-pane>
+        <el-tab-pane label="日常任务" name="first"></el-tab-pane>
+        <el-tab-pane label="重点任务" name="second"></el-tab-pane>
+        <el-tab-pane label="临时任务" name="third"></el-tab-pane>
       </el-tabs>
     </div>
     <div class="common-main">
@@ -88,6 +89,7 @@
             <template slot-scope="scope">
                 <span v-if="activeName=='first'">例行任务</span>
                 <span v-if="activeName=='second'">重点任务</span>
+                <span v-if="activeName=='third'">临时任务</span>
               </template>
           </el-table-column>
           <el-table-column
