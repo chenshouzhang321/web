@@ -65,7 +65,7 @@
 
         </el-row>
       <el-row style="width:100%;overflow:hidden;height:300px;padding-top:10px;border-top:1px solid #f0f0f0">
-          <el-col span="5">
+          <el-col span="6">
             <div :id="chartId3" style="height:300px;"></div>
           </el-col>
           <el-col span="18" style="border-left:1px solid #f0f0f0">
