@@ -209,7 +209,7 @@ option4:{
   mounted() {
       var self=this;
       window.setTimeout(function(){
-      //  HighCharts.chart(self.chartId, self.option)
+        HighCharts.chart(self.chartId, self.option)
         HighCharts.chart(self.chartId2, self.option2)
         HighCharts.chart(self.chartId3, self.option3)
         HighCharts.chart(self.chartId4, self.option4);

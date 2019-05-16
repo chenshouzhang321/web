@@ -6,12 +6,35 @@
       height: 40px;
     }
     .summery{
+      height: 50px;
+      border-bottom: 1px solid #f0f0f0;
       img{
-        width: 30px;
+        width: 50px;
         border-radius: 50%;
         position: relative;
-        top: -10px;
       }
+    }
+
+    .zzbar{
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      background-color: #014886;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      color: #fff;
+      width: 98%;
+
+    }
+    .zzrow{
+      border-bottom: 1px dashed #f0f0f0;
+    }
+    .radiusicon{
+      width: 10px;
+      height: 10px;
+      background-color: #014886;
+      display: inline-block;
+      border-radius: 50%;
     }
   }
 }
