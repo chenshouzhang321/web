@@ -142,7 +142,7 @@ export default {
 		allowDecimals: false,
 		min: 0,
 		title: {
-			text: '水果数量'
+			text: '光荣牌悬挂'
 		}
 	},
 	tooltip: {
@@ -579,6 +579,7 @@ export default {
               return iu+u;
             })
         })
+        _option2.yAxis.title.text=tab.label;
         HighCharts.chart(this.chartId4, _option2)
        console.log(tab, event);
      }
