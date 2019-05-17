@@ -476,12 +476,12 @@ export default {
         y:'center',
         feature : {
             mark : {show: true},
-            dataView : {show: true, readOnly: false}
+            dataView : {show: false, readOnly: false}
         }
     },
     series : [
         {
-            name: '2011全国GDP分布',
+            name: '退伍军人分布',
             type: 'map',
             mapType: '山东',
             mapLocation: {
@@ -513,7 +513,7 @@ export default {
             ]
         },
         {
-            name:'2011全国GDP对比',
+            name:'退伍军人分布',
             type:'pie',
             roseType : 'area',
             tooltip: {

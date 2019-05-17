@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import MainLayout from '@/views/layout/main.vue'
 
-const BasicInformation = () => import('@/views/ImCollection/BasicInformation')
+const BasicInformation = () => import('@/views/ImCollection/BasicInformation1')
 const Basic = () => import('@/views/ImCollection/index')
 const ExcellentsupportIndex = () => import('@/views/Workbenches/ExcellentsupportIndex')
 const Excellentsupport = () => import('@/views/Workbenches/Excellentsupport')
