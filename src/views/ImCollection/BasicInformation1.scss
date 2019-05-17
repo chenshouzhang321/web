@@ -6,6 +6,18 @@
     .el-input,.el-select,{
       width: 100%;
     }
+    .mytabs{
+      width: 100%;
+      .el-tabs__header{
+        display: none;
+      }
+    }
+    .labDiv{
+      margin-top: 10px;
+border: 1px solid #f0f0f0;
+padding: 20px;
+    }
+
     .rowitem{
       border-bottom: 1px solid #f0f0f0;
       >.el-col{

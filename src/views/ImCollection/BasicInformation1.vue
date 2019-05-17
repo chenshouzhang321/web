@@ -157,8 +157,32 @@
                           </el-form-item>
                           </el-col>
                         </el-row>
-                        <el-tabs v-model="activeName" >
-                          <el-tab-pane label="生活状况" name="1">
+                        <el-row :gutter="10">
+                            <el-col :span="4" style="text-align:center" >
+                              <el-button size="mini" @click="handleCheck($event,'1')">生活状态</el-button>
+                            </el-col>
+                            <el-col :span="4" style="text-align:center">
+                              <el-button size="mini" @click="handleCheck($event,'2')">身体状态</el-button>
+
+                            </el-col>
+                            <el-col :span="4" style="text-align:center" >
+                              <el-button size="mini"  @click="handleCheck($event,'3')">家庭成员详情</el-button>
+
+                            </el-col>
+                            <el-col :span="4" style="text-align:center" >
+                              <el-button size="mini"  @click="handleCheck($event,'4')">社会保险详情</el-button>
+
+                            </el-col>
+                            <el-col :span="4" style="text-align:center" >
+                              <el-button size="mini"  @click="handleCheck($event,'5')">教育学历</el-button>
+
+                            </el-col>
+                            <el-col :span="4" style="text-align:center" >
+                              <el-button size="mini"  @click="handleCheck($event,'6')">更多</el-button>
+
+                            </el-col>
+                        </el-row>
+                          <div label="生活状况" class="labDiv" name="1" v-if="activeName=='1'">
                               <el-row :gutter="10">
                                   <el-col :span="6">
                                     <el-form-item label="住房状态" label-width="100px">
@@ -280,8 +304,8 @@
                                     </el-form-item>
                                   </el-col>
                               </el-row>
-                          </el-tab-pane>
-                          <el-tab-pane label="身体状态" name="2">
+                          </div>
+                          <div label="生活状况" class="labDiv" name="1" v-if="activeName=='2'">
                           <el-row :gutter="10">
                               <el-col :span="8">
                                 <el-form-item label="健康状况">
@@ -426,8 +450,8 @@
                                 </el-form-item>
                               </el-col>
                           </el-row>
-                          </el-tab-pane>
-                          <el-tab-pane label="家庭成员详情" name="3">
+                          </div>
+                          <div label="生活状况" class="labDiv"name="1" v-if="activeName=='3'">
                               <el-row :gutter="10">
                                   <el-col :span="3">关系</el-col>
                                   <el-col :span="3">姓  名</el-col>
@@ -533,8 +557,8 @@
                                     <el-input size="mini" v-model="form.工作单位3"></el-input>
                                   </el-col>
                               </el-row>
-                          </el-tab-pane>
-                          <el-tab-pane label="社会保险详情" name="4">
+                          </div>
+                          <div label="生活状况" class="labDiv" name="1" v-if="activeName=='4'">
                               <el-row :gutter="10" >
                                   <el-col :span="8">
                                     <el-form-item label="养老保险类型" label-width="100px">
@@ -579,8 +603,8 @@
                                     </el-form-item>
                                   </el-col>
                               </el-row>
-                          </el-tab-pane>
-                          <el-tab-pane label="教育学历" name="5">
+                          </div>
+                          <div label="生活状况" class="labDiv" name="1" v-if="activeName=='5'">
                               <el-row :gutter="10" >
                                   <el-col :span="24">
                                     <el-radio-group v-model="form.教育学历">
@@ -623,8 +647,8 @@
                                         </el-row>
                                   </el-col>
                               </el-row>
-                          </el-tab-pane>
-                          <el-tab-pane label="更多信息" name="6">
+                          </div>
+                        <div label="生活状况" class="labDiv" name="1" v-if="activeName=='6'">
                               <el-row :gutter="10" >
                                   <el-col :span="8">
                                     <el-form-item label="邮编">
@@ -666,8 +690,7 @@
                                     </el-form-item>
                                   </el-col>
                               </el-row>
-                          </el-tab-pane>
-                        </el-tabs>
+                          </div>
                     </el-container>
                 </el-container>
             </el-col>
@@ -784,6 +807,16 @@ export default {
             type: 'success'
           });
         console.log(this.form)
+      },
+      handleCheck:function(e,i)
+      {
+        if(this.activeName==i)
+        {
+          this.activeName="";
+        }else{
+          this.activeName=i;
+        }
+
       }
   }
 }
