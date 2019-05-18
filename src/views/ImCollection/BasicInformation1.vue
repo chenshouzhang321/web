@@ -1,7 +1,7 @@
 <template>
   <div class="BasicInformation1 common-content">
     <div class="common-main">
-    <el-form ref="form" :label-position="left" label-width="80px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
+    <el-form ref="form"  :label-position="left" label-width="80px" size="mini" :model="form" style="width:100%;margin-top:10px;padding:5px 20px 20px 0px">
       <el-row type="flex"  justify="center" align="middle" class="rowitem">
             <el-col :span="4" style="text-align:center">基本信息</el-col>
             <el-col :span="20">
@@ -699,8 +699,8 @@
             <el-col :span="4" style="text-align:center">身份类别</el-col>
             <el-col :span="20" style="padding-top:20px;">
               <el-form-item label="" label-width="20px">
-                <el-checkbox-group v-model="form.check_gzrenyuan">
-                  <el-checkbox label="军队专业干部" name="type"></el-checkbox>
+                <el-checkbox-group v-model="check_gzrenyuan">
+                  <el-checkbox label="军队转干部" name="type"></el-checkbox>
                   <el-checkbox label="退役士兵" name="type"></el-checkbox>
                   <el-checkbox label="军队离退休干部和退休士官" name="type"></el-checkbox>
                   <el-checkbox label="军队无军籍离退休退职职工" name="type"></el-checkbox>
@@ -715,6 +715,340 @@
                   <el-checkbox label="其他优抚对象" name="type"></el-checkbox>
                 </el-checkbox-group>
               </el-form-item>
+            </el-col>
+      </el-row>
+      <el-row type="flex" v-if="isjz"  justify="center" align="middle" class="rowitem">
+            <el-col :span="4" style="text-align:center">军队转干部</el-col>
+            <el-col :span="20" style="padding:20px;">
+              <el-row style="margin-top:20px;" >
+                  <el-col :span="24">
+                  <el-form-item label="分配类型">
+                    <el-radio-group v-model="form.分配类型">
+                      <el-radio :label="1">自由择业</el-radio>
+                      <el-radio :label="2">计划分配</el-radio>
+                    </el-radio-group>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                  <el-col :span="6">
+                    <el-form-item label="入伍地" >
+                      <el-input v-model="form.入伍地"></el-input>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="入伍时间" >
+                    <el-date-picker type="date" placeholder="选择日期" v-model="form.入伍时间" ></el-date-picker>
+                  </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="退役时间" >
+                  <el-date-picker type="date" placeholder="选择日期" v-model="form.退役时间" ></el-date-picker>
+                </el-form-item>
+                </el-col>
+              <el-col :span="6">
+                <el-form-item label="军龄" >
+                  <el-input v-model="form.军龄"></el-input>
+                </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                  <el-col :span="6">
+                    <el-form-item label="部队代号" >
+                      <el-input v-model="form.部队代号"></el-input>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="兵种" >
+                    <el-input v-model="form.兵种"></el-input>
+                  </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="原部别" >
+                  <el-select v-model="form.原部别" >
+                    <el-option label="东部战区" value="1"></el-option>
+                    <el-option label="西部战区" value="2"></el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+                <el-col :span="6">
+                  &nbsp;
+                  </el-col>
+              </el-row>
+              <el-row>
+                  <el-col :span="24">
+                    <el-form-item label="退役前任职情况" label-width="100px" >
+                      <el-radio-group v-model="form.退役前任职情况">
+                        <el-radio :label="1">行政职务</el-radio>
+                        <el-radio :label="2">专业技术职务</el-radio>
+                        <el-radio :label="3">管理类文职干部</el-radio>
+                        <el-radio :label="4">军衔文职</el-radio>
+                      </el-radio-group>
+                    </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                  <el-col :span="6">
+                    <el-form-item label="职务名称"  >
+                      <el-input v-model="form.职务名称"></el-input>
+                    </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="行政待级"  >
+                     <el-select v-model="form.行政待级" >
+                       <el-option label="排职" value="1"></el-option>
+                       <el-option label="副连职" value="2"></el-option>
+                       <el-option label="正连职" value="3"></el-option>
+                     </el-select>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="任职时间"  >
+                     <el-date-picker type="date" placeholder="选择日期" v-model="form.任职时间" ></el-date-picker>
+                   </el-form-item>
+                 </el-col>
+                  <el-col :span="6">
+                    <el-form-item label=""  >
+                      <el-checkbox-group v-model="form.领导职务">
+                        <el-checkbox label="领导职务" name="type"></el-checkbox>
+                      </el-checkbox-group>
+                    </el-form-item>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                 <el-col :span="6">
+                   <el-form-item label="立功受奖"  >
+                     <el-select v-model="form.立功受奖" >
+                       <el-option label="八一勋章" value="1"></el-option>
+                       <el-option label="大军区以上荣誉" value="2"></el-option>
+                     </el-select>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="立功受奖证件" label-width="100px"  >
+                     <el-input v-model="form.立功受奖证件"></el-input>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="边远地区"  >
+                    <el-select v-model="form.边远地区" >
+                      <el-option label="艰苦边远地区服役一类区服役时长" value="1"></el-option>
+                      <el-option label="艰苦边远地区服役二类区服役时长" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="特殊岗位"  >
+                    <el-select v-model="form.特殊岗位" >
+                      <el-option label="飞行" value="1"></el-option>
+                      <el-option label="舰艇" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                 <el-col :span="6">
+                   <el-form-item label="法律职业资格" label-width="100px" >
+                     <el-select v-model="form.法律职业资格" >
+                       <el-option label="转业时任军事法官检察官" value="1"></el-option>
+                       <el-option label="曾任军事法官检察官" value="2"></el-option>
+                     </el-select>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="参战时长" label-width="100px"  >
+                     <el-input v-model="form.参战时长"></el-input>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="战役名称" label-width="100px"  >
+                    <el-input v-model="form.战役名称"></el-input>
+                  </el-form-item>
+               </el-col>
+                <el-col :span="6">
+                  &nbsp;
+                </el-col>
+              </el-row>
+              <el-row>
+                 <el-col :span="12">
+                   <el-form-item label="转业年度"  >
+                     <el-date-picker type="date" placeholder="选择日期" v-model="form.转业年度" ></el-date-picker>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="12">
+                   <el-form-item label="证件号码" label-width="100px"  >
+                     <el-input v-model="form.证件号码45"></el-input>
+                   </el-form-item>
+                </el-col>
+              </el-row>
+              <div class="title">安置地</div>
+              <el-row style="margin-top:20px">
+                 <el-col :span="6">
+                   <el-form-item label="安置地"  >
+                     <el-input v-model="form.安置地"></el-input>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="省内单位性质" label-width="100px"   >
+                     <el-select v-model="form.省内单位性质">
+                       <el-option label="政法委员会" value="1"></el-option>
+                       <el-option label="人民法院" value="2"></el-option>
+                     </el-select>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="安排领导职务" label-width="100px"   >
+                    <el-select v-model="form.安排领导职务">
+                      <el-option label="领导职务" value="1"></el-option>
+                      <el-option label="非领导职务" value="2"></el-option>
+                      <el-option label="未明确职务" value="3"></el-option>
+                    </el-select>
+                  </el-form-item>
+               </el-col>
+               <el-col :span="6">
+                 <el-form-item label=""  >
+                   <el-checkbox-group v-model="form.领导班子任职">
+                     <el-checkbox label="领导班子任职" name="type"></el-checkbox>
+                   </el-checkbox-group>
+                 </el-form-item>
+             </el-col>
+              </el-row>
+              <el-row >
+                 <el-col :span="6">
+                   <el-form-item label="安置职务等级"  label-width="100px" >
+                     <el-select v-model="form.安置职务等级">
+                       <el-option label="正厅级" value="1"></el-option>
+                       <el-option label="副厅级" value="2"></el-option>
+                     </el-select>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="安置日期"   >
+                     <el-date-picker type="date" placeholder="选择日期" v-model="form.安置日期" ></el-date-picker>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="发出报到通知日期" label-width="120px"  >
+                    <el-date-picker type="date" placeholder="选择日期" v-model="form.发出报到通知日期" ></el-date-picker>
+                  </el-form-item>
+               </el-col>
+               <el-col :span="6">
+                 <el-form-item label="报到日期"   >
+                   <el-date-picker type="date" placeholder="选择日期" v-model="form.报到日期" ></el-date-picker>
+                 </el-form-item>
+              </el-col>
+
+              </el-row>
+              <el-row >
+                 <el-col :span="6">
+                   <el-form-item label="随迁家属姓名"  label-width="100px" >
+                     <el-input v-model="form.随迁家属姓名"></el-input>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="证件号"   >
+                     <el-input v-model="form.证件号44545"></el-input>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  &nbsp;
+               </el-col>
+              </el-row>
+              <el-row >
+                 <el-col :span="8">
+                   <el-form-item label="随迁家属原单位"  label-width="100px" >
+                     <el-input v-model="form.随迁家属原单位"></el-input>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="8">
+                   <el-form-item label="原职务"   >
+                     <el-input v-model="form.原职务"></el-input>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="单位性质">
+                    <el-select v-model="form.单位性质" placeholder="性别">
+                      <el-option label="机关单位" value="1"></el-option>
+                      <el-option label="参公单位" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+               </el-col>
+              </el-row>
+              <el-row >
+                 <el-col :span="8">
+                   <el-form-item label="随迁家属安置单位"  label-width="120px" >
+                     <el-input v-model="form.随迁家属安置单位"></el-input>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="8">
+                   <el-form-item label="安置职务"   >
+                     <el-input v-model="form.安置职务"></el-input>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="岗位性质">
+                    <el-select v-model="form.岗位性质" placeholder="性别">
+                      <el-option label="机关单位" value="1"></el-option>
+                      <el-option label="参公单位" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+               </el-col>
+              </el-row>
+              <el-row >
+                 <el-col :span="8">
+                   <el-form-item label="随迁户数"  label-width="100px" >
+                     <el-input v-model="form.随迁户数"></el-input>
+                   </el-form-item>
+                 </el-col>
+                 <el-col :span="8">
+                   <el-form-item label="随迁落户户数" label-width="120px"  >
+                     <el-input v-model="form.随迁落户户数"></el-input>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="随迁人数">
+                    <el-input v-model="form.随迁人数"></el-input>
+                  </el-form-item>
+               </el-col>
+              </el-row>
+              <el-row >
+                 <el-col :span="6" style="text-align:center">
+                  <el-form-item label="" label-width="2px"   >
+                   <el-checkbox-group v-model="form.岗前培训">
+                     <el-checkbox label="岗前培训" name="type"></el-checkbox>
+                   </el-checkbox-group>
+                    </el-form-item>
+                 </el-col>
+                 <el-col :span="6">
+                   <el-form-item label="退档日期"   >
+                     <el-date-picker type="date" placeholder="选择日期" v-model="form.退档日期" ></el-date-picker>
+                   </el-form-item>
+                </el-col>
+                <el-col :span="6" style="text-align:center">
+                <el-form-item label="" label-width="2px"   >
+                  <el-checkbox-group v-model="form.属于复员改办转业军队转业干部">
+                    <el-checkbox label="属于复员改办转业军队转业干部" name="type"></el-checkbox>
+                  </el-checkbox-group>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="单位性质">
+                    <el-select v-model="form.单位性质" >
+                      <el-option label="档案材料不全" value="1"></el-option>
+                      <el-option label="档案不符合安置规定" value="2"></el-option>
+                      <el-option label="部队撤回档案" value="3"></el-option>
+                    </el-select>
+                  </el-form-item>
+               </el-col>
+              </el-row>
+              <el-row >
+                 <el-col :span="24" >
+                  <el-form-item label="安置备注"   >
+                     <el-input type="textarea" v-model="form.安置备注"></el-input>
+                    </el-form-item>
+                 </el-col>
+              </el-row>
             </el-col>
       </el-row>
       <el-row type="flex"  justify="center" align="middle" class="rowitem">
@@ -788,13 +1122,25 @@ export default {
     return {
       activeName:"10",
       msg: `测度`,
+      isjz:false,
+      check_gzrenyuan:[],
       form:{
         check_grtsah:[],
-        check_gzrenyuan:[],
         jizl_detail:[]
       }
     }
   },
+  watch:{
+    check_gzrenyuan(newVal,oldVal){
+          console.log(newVal,oldVal)
+          if(newVal.indexOf("军队转干部")>-1)
+          {
+            this.isjz=true;
+          }else{
+            this.isjz=false;
+          }
+        }
+   },
   methods:{
       testclick:function(e){
         console.log(this,e)
@@ -817,6 +1163,10 @@ export default {
           this.activeName=i;
         }
 
+      },
+      validate:function(e)
+      {
+      console.log(e)
       }
   }
 }
