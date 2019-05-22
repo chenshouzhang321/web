@@ -1,6 +1,6 @@
 <template>
 <el-container style="height:100%">
-<el-aside width="210px" style="background:#393C4F;    position: relative;
+<el-aside width="250px" style="background:#393C4F;    position: relative;
     overflow: hidden;" >
 
 <div style="background:#002140;height:40px;line-height;40px;
@@ -21,7 +21,7 @@ line-height: 30px;
 position: absolute;
 left: 50%;
 top: 50%;
-transform: translate(-50%,-50%);">山东省退役军人信息化应用中心</div>
+transform: translate(-50%,-50%);">山东省退役军人服务保障信息化应用中心</div>
 </router-link>
 </div>
 

@@ -11,9 +11,9 @@
         <el-col span="1.5"><img :src="imgUrl"></el-col>
           <el-col span="14" style="font-family: SourceHanSansSC-regular;font-size: 28px;font-weight: bold;color:#E51C23">山东省退役军人信息化应用中心</el-col>
       </el-row>
-      <el-row style="width:100%;margin-top:5px;height:300px;padding-bottom:10px;border-bottom:1px solid #f0f0f0">
-          <el-col span="4" style="border-right:1px solid #f0f0f0">
-            <div class="zzbar">工作动态</div>
+      <el-row style="width:100%;margin-top:5px;height:400px;padding-bottom:10px;border-bottom:1px solid #f0f0f0">
+          <el-col span="4" >
+            <div class="zzbar">部工作动态</div>
             <el-row class="zzrow" type="flex"  justify="center" align="middle">
               <el-col span="6" style="text-align:center"><span class="radiusicon"></span></el-col>
               <el-col span="12">部委工作动态</el-col>
@@ -43,8 +43,8 @@
               <el-col span="12" style="text-align:center">122</el-col>
             </el-row>
           </el-col>
-          <el-col span="20" >
-            <div  :id="echartId" style="width:100%;height:300px;"></div>
+          <el-col span="20" style="border-left:1px solid #f0f0f0" >
+            <div  :id="echartId" style="width:100%;height:400px;display:block"></div>
           </el-col>
       </el-row >
 
@@ -53,9 +53,9 @@
             <el-col span="12">
               <el-tabs v-model="activeName" @tab-click="handleClick">
               <el-tab-pane label="光荣牌悬挂" name="first"></el-tab-pane>
-              <el-tab-pane label="困难救助" name="second"></el-tab-pane>
+              <el-tab-pane label="移交安置" name="second"></el-tab-pane>
               <el-tab-pane label="保险接续" name="third"></el-tab-pane>
-              <el-tab-pane label="就业创业" name="fourth"></el-tab-pane>
+              <el-tab-pane label="优抚对象" name="fourth"></el-tab-pane>
             </el-tabs>
               <div :id="chartId4" style="width:100%;height:300px;"></div>
             </el-col>
@@ -88,7 +88,7 @@ export default {
   data () {
     return {
       activeName:'first',
-      imgUrl:require("../../images/logo.jpg"),
+      imgUrl:require("../../images/logo.png"),
       echartId:'echartId',
       chartId:'chartId1',
       chartId2:'chartId12',
@@ -99,7 +99,7 @@ export default {
                         type: 'line'
                     },
                     title: {
-                        text: '柜台业务办理量'//表头文字
+                        text: '中心（站）业务办理量'//表头文字
                     },
                     xAxis: {//x轴显示的内容
                         categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
@@ -136,7 +136,7 @@ export default {
 		text: ''
 	},
 	xAxis: {
-		categories: ['德州市','枣庄市','临沂市','日照市','潍坊市','烟台市','威海市', '济南市', '青岛市', '聊城市', '滨州市','莱芜市','泰安市','济宁市','荷泽市']
+		categories: ['济南','青岛','淄博','枣庄','东营','烟台','潍坊','济宁','泰安','威海','日照','临沂','德州','聊城','滨州','菏泽']
 	},
 	yAxis: {
 		allowDecimals: false,
@@ -160,11 +160,13 @@ export default {
 	series: [{
 		name: '总量',
 		data: [5, 3, 4, 7, 2,5, 3, 4, 7, 2,5, 3, 4, 7, 2,1],
-		stack: 'male' // stack 值相同的为同一组
+		stack: 'male', // stack 值相同的为同一组,
+    color:'#FA8448'
 	}, {
 		name: '完成量',
 		data: [3, 4, 4, 2, 5,3, 4, 4, 2, 5,3, 4, 4, 2, 5,1],
-		stack: 'male'
+		stack: 'male',
+    color:'#00B0F0'
 	}]
 },
 
@@ -470,7 +472,7 @@ export default {
         splitNumber:0
     },
     toolbox: {
-        show : true,
+        show : false,
         orient: 'vertical',
         x:'right',
         y:'center',
@@ -485,9 +487,11 @@ export default {
             type: 'map',
             mapType: '山东',
             mapLocation: {
-                x: 'left'
+                x: 'right'
             },
             selectedMode : 'multiple',
+            zoom:1.2,
+            left:100,
             itemStyle:{
                 normal:{label:{show:true}},
                 emphasis:{label:{show:true}}
@@ -520,7 +524,17 @@ export default {
                 trigger: 'item',
                 formatter: "{a} <br/>{b} : {c} ({d}%)"
             },
-            center: [document.getElementById('echartId').offsetWidth - 250, 225],
+        /*    itemStyle :{
+           normal:{
+             labelLine:{
+                show: false
+               },
+             label : {
+                       show : false
+                   },
+           }
+         },*/
+            center: [document.getElementById('echartId').offsetWidth - 200, 250],
             radius: [30, 120],
             data:[
                 {name: '德州市', value: 16251.93},

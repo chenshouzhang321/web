@@ -107,6 +107,7 @@
           </el-table-column>
           <el-table-column
             prop="sfzh"
+            width="180"
             label="身份证号">
           </el-table-column>
           <el-table-column
@@ -177,7 +178,7 @@ export default {
           zp: '',
           xm: '王小虎',
           xb:'男',
-          sfzh:'330928382387444',
+          sfzh:'220327198503240767',
           rylb:'人员类别',
           cjrq:'2019-03-04',
           sqzt:'审核中',
@@ -187,7 +188,7 @@ export default {
           zp: '',
           xm: '王小虎',
           xb:'男',
-          sfzh:'330928382387444',
+          sfzh:'220327198503240767',
           rylb:'人员类别',
           cjrq:'2019-03-04',
           sqzt:'审核中',
@@ -197,7 +198,7 @@ export default {
           zp: '',
           xm: '王小虎',
           xb:'男',
-          sfzh:'330928382387444',
+          sfzh:'220327198503240767',
           rylb:'人员类别',
           cjrq:'2019-03-04',
           sqzt:'审核中',
@@ -207,7 +208,7 @@ export default {
           zp: '',
           xm: '王小虎',
           xb:'男',
-          sfzh:'330928382387444',
+          sfzh:'220327198503240767',
           rylb:'人员类别',
           cjrq:'2019-03-04',
           sqzt:'审核中',

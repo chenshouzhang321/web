@@ -60,7 +60,7 @@
                           </el-form-item>
                         </el-col>
                   </el-row>
-                  <el-row :gutter="10" >
+                  <el-row :gutter="10" v-if="form.缴费记录!=2">
                             <el-col :span="12">
                                 <el-form-item label="开始缴费时间">
                                   <el-date-picker type="date" placeholder="选择日期" v-model="form.缴费时间1"></el-date-picker>
@@ -72,7 +72,7 @@
                                  </el-form-item>
                               </el-col>
                   </el-row>
-                  <el-row :gutter="10" >
+                  <el-row :gutter="10" v-if="form.缴费记录!=2" >
                       <el-col :span="12">
                           <el-form-item label="缴费地点">
                             <el-input v-model="form.缴费地点"></el-input>
@@ -97,14 +97,14 @@
                           </el-form-item>
                         </el-col>
                   </el-row>
-                  <el-row :gutter="10" >
+                  <el-row :gutter="10" v-if="form.医疗缴费记录!=2" >
                             <el-col :span="12">
                                 <el-form-item label="缴费时间">
                                   <el-date-picker type="date" placeholder="选择日期" v-model="form.缴费时间1"></el-date-picker>
                                 </el-form-item>
                              </el-col>
                   </el-row>
-                  <el-row :gutter="10" >
+                  <el-row :gutter="10" v-if="form.医疗缴费记录!=2" >
                       <el-col :span="12">
                           <el-form-item label="缴费地点">
                             <el-input v-model="form.医疗缴费地点"></el-input>

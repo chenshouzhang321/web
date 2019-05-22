@@ -34,7 +34,7 @@
                             </el-form-item>
                           </el-col>
                           <el-col :span="6">
-                            <el-form-item label="出身日期">
+                            <el-form-item label="出生日期">
                               <el-date-picker type="date" placeholder="选择日期" v-model="form.chushengriqi" ></el-date-picker>
                             </el-form-item>
                           </el-col>
@@ -147,14 +147,52 @@
                           </el-col>
                         </el-row>
                         <el-row :gutter="10" >
-                          <el-col :span="24">
-                          <el-form-item label="服役履历">
-                          <el-checkbox-group v-model="form.check_grtsah">
-                            <el-checkbox label="参战" name="type"></el-checkbox>
-                            <el-checkbox label="参试(涉核)" name="type"></el-checkbox>
-                            <el-checkbox label="参与重大任务" name="type"></el-checkbox>
-                          </el-checkbox-group>
-                          </el-form-item>
+                          <el-col :span="8">
+                            <el-form-item label="服役履历">
+                              <el-select v-model="form.服役履历">
+                                <el-option label="参战" value="1"></el-option>
+                                <el-option label="战役名称1" value="2"></el-option>
+                                <el-option label="战役名称2" value="3"></el-option>
+                                <el-option label="战役名称3" value="4"></el-option>
+                                <el-option label="战役名称4" value="5"></el-option>
+                                <el-option label="战役名称5" value="6"></el-option>
+                              </el-select>
+                            </el-form-item>
+                          </el-col>
+                          <el-col :span="5">
+                            <el-form-item label="" label-width="2px">
+                              <el-select v-model="form.服役履历1">
+                                <el-option label="参试(涉核)" value="1"></el-option>
+                                <el-option label="是" value="2"></el-option>
+                                <el-option label="否" value="3"></el-option>
+                              </el-select>
+                            </el-form-item>
+                          </el-col>
+                          <el-col :span="5">
+                            <el-form-item label="" label-width="2px">
+                              <el-select v-model="form.服役履历2" >
+                                <el-option label="参与重大任务" value="1"></el-option>
+                                <el-option label="重大军事演习" value="2"></el-option>
+                                <el-option label="1976年唐山地震救援" value="3"></el-option>
+                                <el-option label="1998年抗洪" value="4"></el-option>
+                                <el-option label="2003年抗击非典" value="5"></el-option>
+                                <el-option label="2008年汶川512地震救援" value="6"></el-option>
+                                <el-option label="2008年抗击南方冰" value="7"></el-option>
+                                <el-option label="雪灾害" value="8"></el-option>
+                                <el-option label="国庆首都阅兵" value="9"></el-option>
+                                <el-option label="抗战胜利70周年阅兵" value="10"></el-option>
+                                <el-option label="朱日和阅兵" value="11"></el-option>
+                                <el-option label="维稳处突" value="12"></el-option>
+                                <el-option label="奥运会安保及执行任务" value="13"></el-option>
+                                <el-option label="亚丁湾护航" value="14"></el-option>
+                                <el-option label="海外维和" value="15"></el-option>
+                              </el-select>
+                            </el-form-item>
+                          </el-col>
+                          <el-col :span="6">
+                            <el-form-item label="时长">
+                              <el-input v-model="form.时长"></el-input>
+                            </el-form-item>
                           </el-col>
                         </el-row>
                         <el-row :gutter="10">
@@ -700,7 +738,7 @@
             <el-col :span="20" style="padding-top:20px;">
               <el-form-item label="" label-width="20px">
                 <el-checkbox-group v-model="check_gzrenyuan">
-                  <el-checkbox label="军队转干部" name="type"></el-checkbox>
+                  <el-checkbox label="军队转业干部" name="type"></el-checkbox>
                   <el-checkbox label="退役士兵" name="type"></el-checkbox>
                   <el-checkbox label="军队离退休干部和退休士官" name="type"></el-checkbox>
                   <el-checkbox label="军队无军籍离退休退职职工" name="type"></el-checkbox>
@@ -718,14 +756,14 @@
             </el-col>
       </el-row>
       <el-row type="flex" v-if="isjz"  justify="center" align="middle" class="rowitem">
-            <el-col :span="4" style="text-align:center">军队转干部</el-col>
+            <el-col :span="4" style="text-align:center">军队转业干部</el-col>
             <el-col :span="20" style="padding:20px;">
               <el-row style="margin-top:20px;" >
                   <el-col :span="24">
                   <el-form-item label="分配类型">
                     <el-radio-group v-model="form.分配类型">
-                      <el-radio :label="1">自由择业</el-radio>
-                      <el-radio :label="2">计划分配</el-radio>
+                    <el-radio :label="2">计划分配</el-radio>
+                      <el-radio :label="1">自主择业</el-radio>
                     </el-radio-group>
                   </el-form-item>
                 </el-col>
@@ -1133,9 +1171,10 @@ export default {
   watch:{
     check_gzrenyuan(newVal,oldVal){
           console.log(newVal,oldVal)
-          if(newVal.indexOf("军队转干部")>-1)
+          if(newVal.indexOf("军队转业干部")>-1)
           {
             this.isjz=true;
+            this.activeName="10"
           }else{
             this.isjz=false;
           }
