@@ -1089,6 +1089,328 @@
               </el-row>
             </el-col>
       </el-row>
+      <el-row type="flex" v-if="issh"   justify="center" align="middle" class="rowitem">
+            <el-col :span="4" style="text-align:center">“三红”人员</el-col>
+            <el-col :span="20" style="padding:10px;">
+              <el-row style="margin-top:20px;" >
+                  <el-col :span="5">
+                    <el-form-item label="类别">
+                      <el-select v-model="form.三红类别">
+                        <el-option label="退伍红军老战士" value="1"></el-option>
+                        <el-option label="西路军红军老战士" value="2"></el-option>
+                        <el-option label="红军失散人员" value="3"></el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                    <el-col :span="6">
+                      <el-form-item label="入伍时间" >
+                        <el-date-picker type="date" placeholder="选择日期" v-model="form.三红入伍时间" ></el-date-picker>
+                      </el-form-item>
+                  </el-col>
+                  <el-col :span="8">
+                    <el-form-item label="退伍（离休退休）时间" label-width="150px" >
+                      <el-date-picker type="date" placeholder="选择日期" v-model="form.三红退伍离休退休时间" ></el-date-picker>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="5">
+                  <el-form-item label="原单位">
+                    <el-input v-model="form.三红原单位"></el-input>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row >
+                  <el-col :span="5">
+                    <el-form-item label="档案">
+                      <el-input v-model="form.三红档案"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="7">
+                    <el-form-item label="证件（章）">
+                      <div class="imgzp">
+                          <i class="el-icon-plus"></i>
+                      </div>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="6">
+                    <el-form-item label="立功卡片">
+                      <div class="imgzp">
+                          <i class="el-icon-plus"></i>
+                      </div>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="6">
+                    <el-form-item label="证明材料照片" label-width="100px">
+                      <div class="imgzp">
+                          <i class="el-icon-plus"></i>
+                      </div>
+                    </el-form-item>
+                  </el-col>
+              </el-row>
+              <el-row >
+                  <el-col :span="6">
+                    <el-form-item label="其它">
+                      <el-input v-model="form.三红其它"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="6">
+                    <el-form-item label="城乡区分">
+                        <el-select v-model="form.城乡区分" >
+                          <el-option label="城市" value="1"></el-option>
+                          <el-option label="农村" value="2"></el-option>
+                        </el-select>
+                    </el-form-item>
+                  </el-col>
+
+              </el-row>
+              <div class="title">待遇情况</div>
+              <el-row style="margin-top:20px;" >
+                  <el-col :span="5">
+                    <el-form-item label="银行名称">
+                      <el-input v-model="form.三红银行名称"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="5">
+                    <el-form-item label="银行账号">
+                      <el-input v-model="form.三红银行账号"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="7">
+                    <el-form-item label="待遇总计(元)" label-width="120px">
+                      <el-input v-model="form.三红待遇总计元"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="7">
+                    <el-form-item label="是否社会化发放" label-width="120px">
+                      <el-select v-model="form.是否社会化发放" >
+                        <el-option label="是" value="1"></el-option>
+                        <el-option label="否" value="2"></el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+              </el-row>
+              <el-row  >
+                  <el-col :span="7">
+                    <el-form-item label="在乡人员待遇情况" label-width="120px">
+                      <el-select v-model="form.在乡人员待遇情况" >
+                        <el-option label="分散供养" value="1"></el-option>
+                        <el-option label="集中供养" value="2"></el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="5">
+                    <el-form-item label="供养单位" >
+                      <el-select v-model="form.供养单位" >
+                        <el-option label="荣康医院" value="1"></el-option>
+                        <el-option label="复退军人精神病院" value="2"></el-option>
+                        <el-option label="复退军人慢性病疗养院" value="3"></el-option>
+                        <el-option label="综合性优抚医院" value="4"></el-option>
+                        <el-option label="光荣院" value="5"></el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="7">
+                    <el-form-item label="地址(具体到街道)" label-width="120px">
+                      <el-input v-model="form.地址具体到街道"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="5">
+                    <el-form-item label="孤老情况" >
+                      <el-select v-model="form.孤老情况" >
+                        <el-option label="是" value="1"></el-option>
+                        <el-option label="否" value="2"></el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+              </el-row>
+            </el-col>
+      </el-row>
+      <el-row type="flex" v-if="isccjr"  justify="center" align="middle" class="rowitem">
+            <el-col :span="4" style="text-align:center">伤残军人</el-col>
+            <el-col :span="20" style="padding:10px;">
+              <el-row style="margin-top:20px;" >
+                <el-col :span="6">
+                  <el-form-item label="伤残性质">
+                    <el-select v-model="form.伤残性质">
+                      <el-option label="因公" value="1"></el-option>
+                      <el-option label="因病" value="2"></el-option>
+                      <el-option label="因战" value="3"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="伤残等级">
+                    <el-select v-model="form.伤残等级">
+                      <el-option label="1级" value="1"></el-option>
+                      <el-option label="2级" value="2"></el-option>
+                      <el-option label="3级" value="3"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="伤残部位">
+                    <el-input v-model="form.伤残部位"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="伤残证件">
+                    <div class="imgzp">
+                        <i class="el-icon-plus"></i>
+                    </div>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row  >
+                <el-col :span="6">
+                  <el-form-item label="伤残证件号码" label-width="110px">
+                    <el-input v-model="form.伤残证件号码"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="负伤时间">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="form.负伤时间" ></el-date-picker>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="负伤地点">
+                    <el-input v-model="form.负伤地点"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="负伤时所在部队" label-width="120px">
+                    <el-input v-model="form.负伤时所在部队"></el-input>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row  >
+                <el-col :span="8">
+                  <el-form-item label="评残时间">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="form.评残时间" ></el-date-picker>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="是否精神病评残" label-width="120px"  >
+                    <el-select v-model="form.是否精神病评残" >
+                      <el-option label="是" value="1"></el-option>
+                      <el-option label="否" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="是否职业病评残" label-width="120px" >
+                    <el-select v-model="form.是否职业病评残" >
+                      <el-option label="矽肺" value="1"></el-option>
+                      <el-option label="参试" value="2"></el-option>
+                      <el-option label="其他" value="3"></el-option>
+                      <el-option label="否" value="4"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row  >
+                <el-col :span="6">
+                  <el-form-item label="是否配置辅助器具" label-width="120px">
+                    <el-select v-model="form.是否配置辅助器具" >
+                      <el-option label="假肢" value="1"></el-option>
+                      <el-option label="矫形器" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="4" style="padding:0px 5px">
+                    <el-select size="mini" v-model="form.假肢" >
+                      <el-option label="假肢" value="1"></el-option>
+                      <el-option label="装饰性假手" value="2"></el-option>
+                    </el-select>
+                </el-col>
+                <el-col :span="5" style="padding:0px 5px">
+                    <el-select size="mini" v-model="form.移动辅助器械" >
+                      <el-option label="移动辅助器械" value="1"></el-option>
+                      <el-option label="助形器（室内型）" value="2"></el-option>
+                    </el-select>
+                </el-col>
+                <el-col :span="4" style="padding:0px 5px">
+                    <el-select size="mini" v-model="form.假肢" >
+                      <el-option label="假肢" value="1"></el-option>
+                      <el-option label="装饰性假手" value="2"></el-option>
+                    </el-select>
+                </el-col>
+                <el-col :span="5" style="padding:0px 5px">
+                    <el-select size="mini" v-model="form.生活类辅助器械" >
+                      <el-option label="生活类辅助器械" value="1"></el-option>
+                      <el-option label="耳背助听器" value="2"></el-option>
+                    </el-select>
+                </el-col>
+              </el-row>
+              <el-row  >
+                <el-col :span="6">
+                  <el-form-item label="配置时间">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="form.配置时间" ></el-date-picker>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="孤老情况">
+                    <el-select v-model="form.孤老情况1" >
+                      <el-option label="是" value="1"></el-option>
+                      <el-option label="否" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="原服务单位">
+                    <el-input v-model="form.原服务单位6"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="供养情况">
+                    <el-select v-model="form.供养情况3" >
+                      <el-option label="分散供养" value="1"></el-option>
+                      <el-option label="集中供养" value="2"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row  >
+                <el-col :span="6">
+                  <el-form-item label="供养单位">
+                    <el-select v-model="form.供养单位7" >
+                      <el-option label="荣康医院" value="1"></el-option>
+                      <el-option label="复退军人精神病院" value="2"></el-option>
+                      <el-option label="复退军人慢性病疗养院" value="3"></el-option>
+                      <el-option label="综合性优抚医院" value="4"></el-option>
+                      <el-option label="光荣院" value="5"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="供养地址">
+                    <el-input v-model="form.供养地址6"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="伤残变动时间">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="form.伤残变动时间" ></el-date-picker>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="变动伤残等级">
+                    <el-select v-model="form.变动伤残等级">
+                      <el-option label="1级" value="1"></el-option>
+                      <el-option label="2级" value="2"></el-option>
+                      <el-option label="3级" value="3"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row  >
+                <el-col :span="7">
+                  <el-form-item label="变动伤残证件" label-width="120px">
+                  <div class="imgzp">
+                      <i class="el-icon-plus"></i>
+                  </div>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+            </el-col>
+        </el-row>
       <el-row type="flex"  justify="center" align="middle" class="rowitem">
             <el-col :span="4" style="text-align:center">主要诉求</el-col>
             <el-col :span="20">
@@ -1161,6 +1483,8 @@ export default {
       activeName:"10",
       msg: `测度`,
       isjz:false,
+      issh:false,
+      isccjr:false,
       check_gzrenyuan:[],
       form:{
         check_grtsah:[],
@@ -1177,6 +1501,20 @@ export default {
             this.activeName="10"
           }else{
             this.isjz=false;
+          }
+          if(newVal.indexOf("“三红”人员")>-1)
+          {
+            this.issh=true;
+            this.activeName="10"
+          }else{
+            this.issh=false;
+          }
+          if(newVal.indexOf("伤残军人")>-1)
+          {
+            this.isccjr=true;
+            this.activeName="10"
+          }else{
+            this.isccjr=false;
           }
         }
    },

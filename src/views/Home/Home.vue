@@ -80,7 +80,7 @@
 <script>
 import HighCharts from 'highcharts'
 import highchartsMore from 'highcharts/highcharts-more';
-import  'echarts/theme/shine.js'
+import  'echarts/theme/macarons.js'
 import 'echarts/map/js/province/shandong.js';
   highchartsMore(HighCharts);
 export default {
@@ -449,7 +449,7 @@ export default {
     }
   })
         HighCharts.chart(self.chartId3, self.option3);
-        let myChart = self.$echarts.init(document.getElementById(self.echartId),'shine');
+        let myChart = self.$echarts.init(document.getElementById(self.echartId),'macarons');
 
         var optionU = {
     title : {
@@ -464,13 +464,13 @@ export default {
         selectedMode:false,
         data:['济南市','德州市','青岛市']
     },
-    dataRange: {
+    /*dataRange: {
         orient: 'horizontal',
         min: 0,
         max: 55000,
         text:['高','低'],           // 文本，默认为数值文本
         splitNumber:0
-    },
+    },*/
     toolbox: {
         show : false,
         orient: 'vertical',
@@ -519,7 +519,7 @@ export default {
         {
             name:'退伍军人分布',
             type:'pie',
-            roseType : 'area',
+            //roseType : 'area',
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -535,7 +535,7 @@ export default {
            }
          },*/
             center: [document.getElementById('echartId').offsetWidth - 200, 250],
-            radius: [30, 120],
+            radius: '55%',
             data:[
                 {name: '德州市', value: 16251.93},
                 {name: '济南市', value: 19195.69},
@@ -567,7 +567,7 @@ export default {
         if (selected[name]) {
             data.push({
                 name: name,
-                value: mapSeries.data[p].value
+                value: mapSeries.data[p].value,
             });
             legendData.push(name);
         }
