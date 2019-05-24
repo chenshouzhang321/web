@@ -13,10 +13,10 @@
       </el-row>
       <el-row style="width:100%;margin-top:5px;height:400px;padding-bottom:10px;border-bottom:1px solid #f0f0f0">
           <el-col span="4" >
-            <div class="zzbar">部工作动态</div>
+            <div class="zzbar">工作动态</div>
             <el-row class="zzrow" type="flex"  justify="center" align="middle">
               <el-col span="6" style="text-align:center"><span class="radiusicon"></span></el-col>
-              <el-col span="12">部委工作动态</el-col>
+              <el-col span="12">部工作动态</el-col>
               <el-col span="6">20条</el-col>
             </el-row>
             <el-row class="zzrow" type="flex"  justify="center" align="middle">

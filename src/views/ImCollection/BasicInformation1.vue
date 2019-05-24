@@ -1093,7 +1093,7 @@
             <el-col :span="4" style="text-align:center">“三红”人员</el-col>
             <el-col :span="20" style="padding:10px;">
               <el-row style="margin-top:20px;" >
-                  <el-col :span="5">
+                  <el-col :span="6">
                     <el-form-item label="类别">
                       <el-select v-model="form.三红类别">
                         <el-option label="退伍红军老战士" value="1"></el-option>
@@ -1107,8 +1107,8 @@
                         <el-date-picker type="date" placeholder="选择日期" v-model="form.三红入伍时间" ></el-date-picker>
                       </el-form-item>
                   </el-col>
-                  <el-col :span="8">
-                    <el-form-item label="退伍（离休退休）时间" label-width="150px" >
+                  <el-col :span="6">
+                    <el-form-item label="退伍时间"  >
                       <el-date-picker type="date" placeholder="选择日期" v-model="form.三红退伍离休退休时间" ></el-date-picker>
                     </el-form-item>
                 </el-col>
